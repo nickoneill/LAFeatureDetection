@@ -17,6 +17,7 @@
 		D04A3755153B7E14005621CF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04A3735153B7E14005621CF /* Cocoa.framework */; };
 		D04A375D153B7E14005621CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D04A375B153B7E14005621CF /* InfoPlist.strings */; };
 		D04A3760153B7E14005621CF /* FastImageCorrelationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D04A375F153B7E14005621CF /* FastImageCorrelationTests.m */; };
+		D04A376C153B7FF2005621CF /* NOImageCorrelate.m in Sources */ = {isa = PBXBuildFile; fileRef = D04A376B153B7FF2005621CF /* NOImageCorrelate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,20 +36,22 @@
 		D04A3738153B7E14005621CF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		D04A3739153B7E14005621CF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D04A373A153B7E14005621CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		D04A373D153B7E14005621CF /* FastImageCorrelation-Info.plist */ = {isa = PBXFileReference; path = "FastImageCorrelation-Info.plist"; sourceTree = "<group>"; };
+		D04A373D153B7E14005621CF /* FastImageCorrelation-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FastImageCorrelation-Info.plist"; sourceTree = "<group>"; };
 		D04A373F153B7E14005621CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D04A3741153B7E14005621CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D04A3743153B7E14005621CF /* FastImageCorrelation-Prefix.pch */ = {isa = PBXFileReference; path = "FastImageCorrelation-Prefix.pch"; sourceTree = "<group>"; };
+		D04A3743153B7E14005621CF /* FastImageCorrelation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FastImageCorrelation-Prefix.pch"; sourceTree = "<group>"; };
 		D04A3745153B7E14005621CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		D04A3747153B7E14005621CF /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		D04A3747153B7E14005621CF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D04A3748153B7E14005621CF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D04A374B153B7E14005621CF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D04A3752153B7E14005621CF /* FastImageCorrelationTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastImageCorrelationTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D04A3753153B7E14005621CF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		D04A375A153B7E14005621CF /* FastImageCorrelationTests-Info.plist */ = {isa = PBXFileReference; path = "FastImageCorrelationTests-Info.plist"; sourceTree = "<group>"; };
+		D04A375A153B7E14005621CF /* FastImageCorrelationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FastImageCorrelationTests-Info.plist"; sourceTree = "<group>"; };
 		D04A375C153B7E14005621CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D04A375E153B7E14005621CF /* FastImageCorrelationTests.h */ = {isa = PBXFileReference; path = FastImageCorrelationTests.h; sourceTree = "<group>"; };
+		D04A375E153B7E14005621CF /* FastImageCorrelationTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FastImageCorrelationTests.h; sourceTree = "<group>"; };
 		D04A375F153B7E14005621CF /* FastImageCorrelationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FastImageCorrelationTests.m; sourceTree = "<group>"; };
+		D04A376A153B7FF2005621CF /* NOImageCorrelate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NOImageCorrelate.h; sourceTree = SOURCE_ROOT; };
+		D04A376B153B7FF2005621CF /* NOImageCorrelate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NOImageCorrelate.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,7 @@
 		D04A373B153B7E14005621CF /* FastImageCorrelation */ = {
 			isa = PBXGroup;
 			children = (
+				D04A3769153B7FD7005621CF /* NOImageCorrelate */,
 				D04A3747153B7E14005621CF /* AppDelegate.h */,
 				D04A3748153B7E14005621CF /* AppDelegate.m */,
 				D04A374A153B7E14005621CF /* MainMenu.xib */,
@@ -151,6 +155,15 @@
 				D04A375B153B7E14005621CF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D04A3769153B7FD7005621CF /* NOImageCorrelate */ = {
+			isa = PBXGroup;
+			children = (
+				D04A376A153B7FF2005621CF /* NOImageCorrelate.h */,
+				D04A376B153B7FF2005621CF /* NOImageCorrelate.m */,
+			);
+			name = NOImageCorrelate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +275,7 @@
 			files = (
 				D04A3742153B7E14005621CF /* main.m in Sources */,
 				D04A3749153B7E14005621CF /* AppDelegate.m in Sources */,
+				D04A376C153B7FF2005621CF /* NOImageCorrelate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
