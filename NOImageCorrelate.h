@@ -10,4 +10,7 @@
 
 @interface NOImageCorrelate : NSObject
 
++ (id)probablePointsForImage:(NSImage *)kernel inImage:(NSImage *)sample;
+- (id)probablePointsForImage:(NSImage *)kernel inImage:(NSImage *)sample;
+
 @end

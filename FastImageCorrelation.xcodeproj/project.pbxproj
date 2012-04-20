@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D00AA3B21541D802006586B3 /* reference.png in Resources */ = {isa = PBXBuildFile; fileRef = D00AA3B01541D802006586B3 /* reference.png */; };
+		D00AA3B31541D802006586B3 /* screen.png in Resources */ = {isa = PBXBuildFile; fileRef = D00AA3B11541D802006586B3 /* screen.png */; };
 		D04A3736153B7E14005621CF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04A3735153B7E14005621CF /* Cocoa.framework */; };
 		D04A3740153B7E14005621CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D04A373E153B7E14005621CF /* InfoPlist.strings */; };
 		D04A3742153B7E14005621CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D04A3741153B7E14005621CF /* main.m */; };
@@ -31,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D00AA3B01541D802006586B3 /* reference.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reference.png; sourceTree = "<group>"; };
+		D00AA3B11541D802006586B3 /* screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen.png; sourceTree = "<group>"; };
 		D04A3731153B7E14005621CF /* FastImageCorrelation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastImageCorrelation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D04A3735153B7E14005621CF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D04A3738153B7E14005621CF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -75,6 +79,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D00AA3AA1541D7AF006586B3 /* Example Images */ = {
+			isa = PBXGroup;
+			children = (
+				D00AA3B01541D802006586B3 /* reference.png */,
+				D00AA3B11541D802006586B3 /* screen.png */,
+			);
+			name = "Example Images";
+			sourceTree = "<group>";
+		};
 		D04A3726153B7E14005621CF = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +130,7 @@
 		D04A373B153B7E14005621CF /* FastImageCorrelation */ = {
 			isa = PBXGroup;
 			children = (
+				D00AA3AA1541D7AF006586B3 /* Example Images */,
 				D04A3769153B7FD7005621CF /* NOImageCorrelate */,
 				D04A3747153B7E14005621CF /* AppDelegate.h */,
 				D04A3748153B7E14005621CF /* AppDelegate.m */,
@@ -239,6 +253,8 @@
 				D04A3740153B7E14005621CF /* InfoPlist.strings in Resources */,
 				D04A3746153B7E14005621CF /* Credits.rtf in Resources */,
 				D04A374C153B7E14005621CF /* MainMenu.xib in Resources */,
+				D00AA3B21541D802006586B3 /* reference.png in Resources */,
+				D00AA3B31541D802006586B3 /* screen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +465,7 @@
 				D04A3765153B7E14005621CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D04A3766153B7E14005621CF /* Build configuration list for PBXNativeTarget "FastImageCorrelationTests" */ = {
 			isa = XCConfigurationList;
@@ -457,6 +474,7 @@
 				D04A3768153B7E14005621CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
