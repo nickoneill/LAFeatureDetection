@@ -20,6 +20,9 @@
 		D04A375D153B7E14005621CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D04A375B153B7E14005621CF /* InfoPlist.strings */; };
 		D04A3760153B7E14005621CF /* FastImageCorrelationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D04A375F153B7E14005621CF /* FastImageCorrelationTests.m */; };
 		D04A376C153B7FF2005621CF /* NOImageCorrelate.m in Sources */ = {isa = PBXBuildFile; fileRef = D04A376B153B7FF2005621CF /* NOImageCorrelate.m */; };
+		D05275F815570A1600F464CC /* sobelblockrot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D05275F615570A1600F464CC /* sobelblockrot.jpg */; };
+		D05275F915570A1600F464CC /* sobelground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D05275F715570A1600F464CC /* sobelground.jpg */; };
+		D05275FC15570BCB00F464CC /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D05275FB15570BCB00F464CC /* Accelerate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 		D04A375F153B7E14005621CF /* FastImageCorrelationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FastImageCorrelationTests.m; sourceTree = "<group>"; };
 		D04A376A153B7FF2005621CF /* NOImageCorrelate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NOImageCorrelate.h; sourceTree = SOURCE_ROOT; };
 		D04A376B153B7FF2005621CF /* NOImageCorrelate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NOImageCorrelate.m; sourceTree = SOURCE_ROOT; };
+		D05275F615570A1600F464CC /* sobelblockrot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sobelblockrot.jpg; sourceTree = "<group>"; };
+		D05275F715570A1600F464CC /* sobelground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sobelground.jpg; sourceTree = "<group>"; };
+		D05275FB15570BCB00F464CC /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D05275FC15570BCB00F464CC /* Accelerate.framework in Frameworks */,
 				D04A3736153B7E14005621CF /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,6 +89,8 @@
 		D00AA3AA1541D7AF006586B3 /* Example Images */ = {
 			isa = PBXGroup;
 			children = (
+				D05275F615570A1600F464CC /* sobelblockrot.jpg */,
+				D05275F715570A1600F464CC /* sobelground.jpg */,
 				D00AA3B01541D802006586B3 /* reference.png */,
 				D00AA3B11541D802006586B3 /* screen.png */,
 			);
@@ -110,6 +119,7 @@
 		D04A3734153B7E14005621CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D05275FB15570BCB00F464CC /* Accelerate.framework */,
 				D04A3735153B7E14005621CF /* Cocoa.framework */,
 				D04A3753153B7E14005621CF /* SenTestingKit.framework */,
 				D04A3737153B7E14005621CF /* Other Frameworks */,
@@ -255,6 +265,8 @@
 				D04A374C153B7E14005621CF /* MainMenu.xib in Resources */,
 				D00AA3B21541D802006586B3 /* reference.png in Resources */,
 				D00AA3B31541D802006586B3 /* screen.png in Resources */,
+				D05275F815570A1600F464CC /* sobelblockrot.jpg in Resources */,
+				D05275F915570A1600F464CC /* sobelground.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
