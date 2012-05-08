@@ -23,6 +23,8 @@
 		D05275F815570A1600F464CC /* sobelblockrot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D05275F615570A1600F464CC /* sobelblockrot.jpg */; };
 		D05275F915570A1600F464CC /* sobelground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D05275F715570A1600F464CC /* sobelground.jpg */; };
 		D05275FC15570BCB00F464CC /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D05275FB15570BCB00F464CC /* Accelerate.framework */; };
+		D05275FF155891D300F464CC /* sobelblockrot.png in Resources */ = {isa = PBXBuildFile; fileRef = D05275FD155891D300F464CC /* sobelblockrot.png */; };
+		D0527600155891D300F464CC /* sobelground.png in Resources */ = {isa = PBXBuildFile; fileRef = D05275FE155891D300F464CC /* sobelground.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		D05275F615570A1600F464CC /* sobelblockrot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sobelblockrot.jpg; sourceTree = "<group>"; };
 		D05275F715570A1600F464CC /* sobelground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sobelground.jpg; sourceTree = "<group>"; };
 		D05275FB15570BCB00F464CC /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		D05275FD155891D300F464CC /* sobelblockrot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sobelblockrot.png; sourceTree = "<group>"; };
+		D05275FE155891D300F464CC /* sobelground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sobelground.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,8 @@
 		D00AA3AA1541D7AF006586B3 /* Example Images */ = {
 			isa = PBXGroup;
 			children = (
+				D05275FD155891D300F464CC /* sobelblockrot.png */,
+				D05275FE155891D300F464CC /* sobelground.png */,
 				D05275F615570A1600F464CC /* sobelblockrot.jpg */,
 				D05275F715570A1600F464CC /* sobelground.jpg */,
 				D00AA3B01541D802006586B3 /* reference.png */,
@@ -267,6 +273,8 @@
 				D00AA3B31541D802006586B3 /* screen.png in Resources */,
 				D05275F815570A1600F464CC /* sobelblockrot.jpg in Resources */,
 				D05275F915570A1600F464CC /* sobelground.jpg in Resources */,
+				D05275FF155891D300F464CC /* sobelblockrot.png in Resources */,
+				D0527600155891D300F464CC /* sobelground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

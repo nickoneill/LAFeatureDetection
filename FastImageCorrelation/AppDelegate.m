@@ -17,29 +17,23 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
-    NSImage *sample = [NSImage imageNamed:@"sobelground.jpg"];
-    NSImage *kernel = [NSImage imageNamed:@"sobelblockrot.jpg"];
+    NSImage *sample = [NSImage imageNamed:@"sobelground.png"];
+    NSImage *kernel = [NSImage imageNamed:@"sobelblockrot.png"];
+    
+    NSBitmapImageRep *testrep = [NSBitmapImageRep imageRepWithData:[sample TIFFRepresentation]];
+    
+    NSLog(@"sample bpp: %ld",[testrep bitsPerPixel]);
 
     NSImageView *result = [[NSImageView alloc] initWithFrame:self.view.frame];
 
-//    [[[NOImageCorrelate alloc] init] fft:sample andRef:kernel];
-
-    id athing = [NOImageCorrelate probablePointsForImage:kernel inImage:sample];
-    if ([athing isKindOfClass:[NSArray class]]) {
-        NSArray *points = (NSArray *)athing;
-        
-        for (int i = 0; i < [points count]; i++) {
-            CGPoint point = [[points objectAtIndex:i] pointValue];
-            NSLog(@"point: %f,%f",point.x,point.y);
-        }
-        
-        [result setImage:sample];
-    } else if ([athing isKindOfClass:[NSImage class]]) {
-        NSImage *test = (NSImage *)athing;
-        
-        [result setImage:test];
-        [result setFrame:NSMakeRect(0, 0, test.size.width, test.size.height)];
+    NSArray *points = [NOImageCorrelate probablePointsForImage:kernel inImage:sample];
+    
+    for (int i = 0; i < [points count]; i++) {
+        CGPoint point = [[points objectAtIndex:i] pointValue];
+        NSLog(@"point: %f,%f",point.x,point.y);
     }
+    
+    [result setImage:sample];
     
     [self.view addSubview:result];
 }

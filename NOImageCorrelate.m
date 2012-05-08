@@ -25,20 +25,20 @@ typedef struct {
 - (id)init
 {
     if (self = [super init]) {
-        relatedPointThreshold = 0.70;
+        relatedPointThreshold = 0.95;
     }
     
     return self;
 }
 
-+ (id)probablePointsForImage:(NSImage *)kernel inImage:(NSImage *)sample
++ (NSArray*)probablePointsForImage:(NSImage *)kernel inImage:(NSImage *)sample
 {
     NOImageCorrelate *correlate = [[NOImageCorrelate alloc] init];
     
     return [correlate probablePointsForImage:kernel inImage:sample];
 }
 
-- (id)probablePointsForImage:(NSImage *)kernel inImage:(NSImage *)sample
+- (NSArray*)probablePointsForImage:(NSImage *)kernel inImage:(NSImage *)sample
 {
     COMPLEX_SPLIT   sampleComplex,kernelComplex,resultComplex;
     FFTSetup        setupReal;
@@ -51,8 +51,8 @@ typedef struct {
     NSBitmapImageRep *kernelRep = [NSBitmapImageRep imageRepWithData:[kernel TIFFRepresentation]];
     NSBitmapImageRep *display = [NSBitmapImageRep imageRepWithData:[sample TIFFRepresentation]];
     
-    RGBPixel *samplePixels = (RGBPixel *)[sampleRep bitmapData];
-    RGBPixel *kernelPixels = (RGBPixel *)[kernelRep bitmapData];
+    RGBAPixel *samplePixels = (RGBAPixel *)[sampleRep bitmapData];
+    RGBAPixel *kernelPixels = (RGBAPixel *)[kernelRep bitmapData];
     
     NSLog(@"sample size is: %ldx%ld",[sampleRep pixelsWide],[sampleRep pixelsHigh]);
     int max_dimension = MAX(MAX(MAX([sampleRep pixelsHigh], [sampleRep pixelsWide]), [kernelRep pixelsHigh]), [kernelRep pixelsWide]);
@@ -109,7 +109,7 @@ typedef struct {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (i < [sampleRep pixelsHigh] && j < [sampleRep pixelsWide]) {
-                RGBPixel *samplePixel = (RGBPixel *)&samplePixels[(n*i)+j];
+                RGBAPixel *samplePixel = (RGBAPixel *)&samplePixels[(n*i)+j];
                 
                 unsigned char gray = ((samplePixel->redByte*0.2989) + (samplePixel->greenByte*0.5870) + (samplePixel->blueByte*0.1140));
                 
@@ -128,7 +128,7 @@ typedef struct {
             }
             
             if (i < [kernelRep pixelsHigh] && j < [kernelRep pixelsWide]) {
-                RGBPixel *kernelPixel = (RGBPixel *)&kernelPixels[(n*i)+j];
+                RGBAPixel *kernelPixel = (RGBAPixel *)&kernelPixels[(n*i)+j];
                 
                 unsigned char gray = ((kernelPixel->redByte*0.2989) + (kernelPixel->greenByte*0.5870) + (kernelPixel->blueByte*0.1140));
                 
@@ -250,6 +250,7 @@ typedef struct {
         }
     }
     
+    // determine valid points over threshold
     limit = floor(max*relatedPointThreshold);
     for (int i = 0; i < n*n; i++) {
         if (resultArray[i] >= limit) {
@@ -261,9 +262,29 @@ typedef struct {
         }
     }
     
-    // TODO: for testing return images
-//    NSImage *new = [[NSImage alloc] initWithCGImage:[display CGImage] size:[display size]];
-//    return new;
+    // free malloc'd memory
+    vDSP_destroy_fftsetup(setupReal);
+    free(sampleComplex.realp);
+    free(sampleComplex.imagp);
+    free(kernelComplex.realp);
+    free(kernelComplex.imagp);
+    free(resultComplex.realp);
+    free(resultComplex.imagp);
+    free(sampleArray);
+    free(kernelArray);
+    free(resultArray);
+    free(sampleRealColumn.realp);
+    free(sampleRealColumn.imagp);
+    free(kernelRealColumn.realp);
+    free(kernelRealColumn.imagp);
+    free(resultRealColumn.realp);
+    free(resultRealColumn.imagp);
+    free(sampleImagColumn.realp);
+    free(sampleImagColumn.imagp);
+    free(kernelImagColumn.realp);
+    free(kernelImagColumn.imagp);
+    free(resultImagColumn.realp);
+    free(resultImagColumn.imagp);
     
     return points;
 }
