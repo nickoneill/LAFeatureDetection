@@ -4,17 +4,23 @@ This library is designed to use the accelerated vDSP functions for OSX/iOS to pe
 
 ### Correlation by convolution ###
 
-Iterative methods for finding an image within another image are accurate but slow. Fortunately, most image processing applications care more about speed than accuracy and we can achieve th
+Iterative methods for finding an image within another image are accurate but slow. Fortunately, most image processing applications care more about speed than pixel-level accuracy. In fact, the simplest iterative method matches exact pixel values which requires that you know the exact pixel values you're looking for. 
 
-For a sample image and some subimage (convolution sometimes refers to it as a kernel), we can compute discrete fourier transforms for both images after rotating the kernel by 180˚, multiplying the transformed matrices together and performing an inverse fourier transform on the result. This final matrix has a point of maximum intensity which corresponds to the location of the kernel in the sample image.
+Convolutions via fourier transform provide an interesting alternative solution.
 
-Conveniently, the fast fourier transform is often used in digital signal processing and a ton of work has been done to streamline the vector computations used for this purpose. The OSX/iOS Accelerate framework is, according to
+Convolution in image processing term describing a fourier transform of two images, point multiplying the two transforms and performing an inverse fourier transform on the result. It effectively applies a kernel filter to an entire sample image and is the basis for the coloring effects found in Photo Booth and plenty of image filters in Photoshop.
+
+Conveniently, if we convolve a subimage with its parent image, the result matrix has a point of maximum intensity that describes the location of the subimage in the parent. Applying an edge-detection filter in advance gives a general solution to finding things that "look like" a subimage - the fuzziness we desire in image processing.
+
+The fast fourier transform is often used in digital signal processing and a ton of work has been done to streamline the vector computations used for this purpose. The OSX/iOS Accelerate framework has some of the fastest fourier transforms out there but it can be a bit obtuse to understand and use because of the technical steps taken to achieve such speed.
+
+The goal of this library is to allow anyone with basic Objective-C knowledge to run fast convolutions and find image-within-image data.
 
 ### Using the library ###
 
 Most users will probably be satisfied by using the default class method `probablePointsForImage:(NSImage *)kernel inImage:(NSImage *)sample` which makes some assumptions and returns an array of the most likely locations of the kernel image in the sample (likeliest first). The points returned are the likely location of the bottom right corner of the kernel.
 
-(There are some optimizations for faster execution or specific use cases that could be customized for but so far we're optimized for simplicity)
+(There are some optimizations for faster execution or specific use cases that could be customized for but so far we're aiming for simplicity)
 
 ### Credits ###
 
