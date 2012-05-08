@@ -17,12 +17,16 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
-    NSImage *sample = [NSImage imageNamed:@"sobelground.png"];
-    NSImage *kernel = [NSImage imageNamed:@"sobelblockrot.png"];
-    
-    NSBitmapImageRep *testrep = [NSBitmapImageRep imageRepWithData:[sample TIFFRepresentation]];
-    
-    NSLog(@"sample bpp: %ld",[testrep bitsPerPixel]);
+    NSImage *sample = [[NSImage alloc] initByReferencingFile:[[NSBundle mainBundle] pathForResource:@"sobelground" ofType:@"png"]];
+    NSImage *kernel = [[NSImage alloc] initByReferencingFile:[[NSBundle mainBundle] pathForResource:@"sobelblockrot" ofType:@"png"]];
+        
+//    NSImage *testone = [[NSImage alloc] initByReferencingFile:[[NSBundle mainBundle] pathForResource:@"sobelground" ofType:@"png"]];
+//    NSBitmapImageRep *samplerep = [NSBitmapImageRep imageRepWithData:[testone TIFFRepresentation]];
+//    NSLog(@"testone bpp: %lu",[samplerep bitmapFormat]);
+//    
+//    NSImage *test = [[NSImage alloc] initByReferencingFile:[[NSBundle mainBundle] pathForResource:@"sobelground" ofType:@"jpg"]];
+//    NSBitmapImageRep *testrep = [NSBitmapImageRep imageRepWithData:[test TIFFRepresentation]];
+//    NSLog(@"test bpp: %lu",[testrep bitmapFormat]);
 
     NSImageView *result = [[NSImageView alloc] initWithFrame:self.view.frame];
 

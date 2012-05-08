@@ -49,10 +49,16 @@ typedef struct {
     
     NSBitmapImageRep *sampleRep = [NSBitmapImageRep imageRepWithData:[sample TIFFRepresentation]];
     NSBitmapImageRep *kernelRep = [NSBitmapImageRep imageRepWithData:[kernel TIFFRepresentation]];
-    NSBitmapImageRep *display = [NSBitmapImageRep imageRepWithData:[sample TIFFRepresentation]];
     
     RGBAPixel *samplePixels = (RGBAPixel *)[sampleRep bitmapData];
     RGBAPixel *kernelPixels = (RGBAPixel *)[kernelRep bitmapData];
+    
+    if ([sampleRep bitmapFormat] == NSAlphaNonpremultipliedBitmapFormat) {
+        NSLog(@"sample has alpha");
+    }
+    if ([kernelRep bitmapFormat] == NSAlphaNonpremultipliedBitmapFormat) {
+        NSLog(@"kernel has alpha");
+    }
     
     NSLog(@"sample size is: %ldx%ld",[sampleRep pixelsWide],[sampleRep pixelsHigh]);
     int max_dimension = MAX(MAX(MAX([sampleRep pixelsHigh], [sampleRep pixelsWide]), [kernelRep pixelsHigh]), [kernelRep pixelsWide]);
@@ -101,9 +107,7 @@ typedef struct {
     sampleArray = (float *)malloc((n*n) * sizeof(float));
     kernelArray = (float *)malloc((n*n) * sizeof(float));
     resultArray = (float *)malloc((n*n) * sizeof(float));
-    
-    display = [NSBitmapImageRep imageRepWithData:[[[NSImage alloc] initWithSize:NSMakeSize(n, n)] TIFFRepresentation]];
-    
+        
     // transfer pixels to grayscale array
     // zero all pixels that are outside of data
     for (int i = 0; i < n; i++) {
@@ -114,17 +118,9 @@ typedef struct {
                 unsigned char gray = ((samplePixel->redByte*0.2989) + (samplePixel->greenByte*0.5870) + (samplePixel->blueByte*0.1140));
                 
                 sampleArray[(n*i)+j] = (float)gray;
-                
-                // TODO: this is for testing when expanding into larger log2n sizes
-//                NSUInteger pixarray[3] = {250,0,0};
-//                [display setPixel:pixarray atX:j y:i];
-//                [display setColor:[NSColor colorWithDeviceRed:0.2 green:0.2 blue:0.2 alpha:1] atX:j y:i];
             } else {
                 
                 sampleArray[(n*i)+j] = 0.0;
-//                NSUInteger pixarray[3] = {250,0,0};
-//                [display setPixel:pixarray atX:j y:i];
-//                [display setColor:[NSColor colorWithDeviceRed:0.6 green:0 blue:0 alpha:1] atX:j y:i];
             }
             
             if (i < [kernelRep pixelsHigh] && j < [kernelRep pixelsWide]) {
