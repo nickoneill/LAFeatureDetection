@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		D00AA3B21541D802006586B3 /* reference.png in Resources */ = {isa = PBXBuildFile; fileRef = D00AA3B01541D802006586B3 /* reference.png */; };
 		D00AA3B31541D802006586B3 /* screen.png in Resources */ = {isa = PBXBuildFile; fileRef = D00AA3B11541D802006586B3 /* screen.png */; };
+		D02A1B1E155AE55F0067350F /* alcatraz-kernel.png in Resources */ = {isa = PBXBuildFile; fileRef = D02A1B18155AE55F0067350F /* alcatraz-kernel.png */; };
+		D02A1B1F155AE55F0067350F /* candlestick-kernel.png in Resources */ = {isa = PBXBuildFile; fileRef = D02A1B19155AE55F0067350F /* candlestick-kernel.png */; };
+		D02A1B20155AE55F0067350F /* palace-kernel.png in Resources */ = {isa = PBXBuildFile; fileRef = D02A1B1A155AE55F0067350F /* palace-kernel.png */; };
+		D02A1B21155AE55F0067350F /* sf-sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D02A1B1B155AE55F0067350F /* sf-sample.jpg */; };
+		D02A1B22155AE55F0067350F /* sf-sample.png in Resources */ = {isa = PBXBuildFile; fileRef = D02A1B1C155AE55F0067350F /* sf-sample.png */; };
+		D02A1B23155AE55F0067350F /* ship-kernel.png in Resources */ = {isa = PBXBuildFile; fileRef = D02A1B1D155AE55F0067350F /* ship-kernel.png */; };
 		D04A3736153B7E14005621CF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04A3735153B7E14005621CF /* Cocoa.framework */; };
 		D04A3740153B7E14005621CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D04A373E153B7E14005621CF /* InfoPlist.strings */; };
 		D04A3742153B7E14005621CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D04A3741153B7E14005621CF /* main.m */; };
@@ -40,6 +46,12 @@
 /* Begin PBXFileReference section */
 		D00AA3B01541D802006586B3 /* reference.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reference.png; sourceTree = "<group>"; };
 		D00AA3B11541D802006586B3 /* screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen.png; sourceTree = "<group>"; };
+		D02A1B18155AE55F0067350F /* alcatraz-kernel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alcatraz-kernel.png"; sourceTree = "<group>"; };
+		D02A1B19155AE55F0067350F /* candlestick-kernel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "candlestick-kernel.png"; sourceTree = "<group>"; };
+		D02A1B1A155AE55F0067350F /* palace-kernel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "palace-kernel.png"; sourceTree = "<group>"; };
+		D02A1B1B155AE55F0067350F /* sf-sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "sf-sample.jpg"; sourceTree = "<group>"; };
+		D02A1B1C155AE55F0067350F /* sf-sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sf-sample.png"; sourceTree = "<group>"; };
+		D02A1B1D155AE55F0067350F /* ship-kernel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ship-kernel.png"; sourceTree = "<group>"; };
 		D04A3731153B7E14005621CF /* FastImageCorrelation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastImageCorrelation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D04A3735153B7E14005621CF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D04A3738153B7E14005621CF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -93,6 +105,12 @@
 		D00AA3AA1541D7AF006586B3 /* Example Images */ = {
 			isa = PBXGroup;
 			children = (
+				D02A1B18155AE55F0067350F /* alcatraz-kernel.png */,
+				D02A1B19155AE55F0067350F /* candlestick-kernel.png */,
+				D02A1B1A155AE55F0067350F /* palace-kernel.png */,
+				D02A1B1B155AE55F0067350F /* sf-sample.jpg */,
+				D02A1B1C155AE55F0067350F /* sf-sample.png */,
+				D02A1B1D155AE55F0067350F /* ship-kernel.png */,
 				D05275FD155891D300F464CC /* sobelblockrot.png */,
 				D05275FE155891D300F464CC /* sobelground.png */,
 				D05275F615570A1600F464CC /* sobelblockrot.jpg */,
@@ -275,6 +293,12 @@
 				D05275F915570A1600F464CC /* sobelground.jpg in Resources */,
 				D05275FF155891D300F464CC /* sobelblockrot.png in Resources */,
 				D0527600155891D300F464CC /* sobelground.png in Resources */,
+				D02A1B1E155AE55F0067350F /* alcatraz-kernel.png in Resources */,
+				D02A1B1F155AE55F0067350F /* candlestick-kernel.png in Resources */,
+				D02A1B20155AE55F0067350F /* palace-kernel.png in Resources */,
+				D02A1B21155AE55F0067350F /* sf-sample.jpg in Resources */,
+				D02A1B22155AE55F0067350F /* sf-sample.png in Resources */,
+				D02A1B23155AE55F0067350F /* ship-kernel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

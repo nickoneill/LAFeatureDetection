@@ -50,45 +50,58 @@ typedef struct {
     NSBitmapImageRep *sampleRep = [NSBitmapImageRep imageRepWithData:[sample TIFFRepresentation]];
     NSBitmapImageRep *kernelRep = [NSBitmapImageRep imageRepWithData:[kernel TIFFRepresentation]];
     
-    RGBAPixel *samplePixels = (RGBAPixel *)[sampleRep bitmapData];
-    RGBAPixel *kernelPixels = (RGBAPixel *)[kernelRep bitmapData];
-    
-    if ([sampleRep bitmapFormat] == NSAlphaNonpremultipliedBitmapFormat) {
-        NSLog(@"sample has alpha");
+    // grab image info so we can get pixel values properly
+    CGImageAlphaInfo sampleInfo = CGImageGetAlphaInfo([sampleRep CGImage]);
+    BOOL sampleHasAlpha = ((sampleInfo == kCGImageAlphaPremultipliedLast) || 
+                           (sampleInfo == kCGImageAlphaLast) ? YES : NO);
+    CGImageAlphaInfo kernelInfo = CGImageGetAlphaInfo([kernelRep CGImage]);
+    BOOL kernelHasAlpha = ((kernelInfo == kCGImageAlphaPremultipliedLast) || 
+                           (kernelInfo == kCGImageAlphaLast) ? YES : NO);
+
+    RGBAPixel *sampleAlphaPixels;
+    RGBPixel  *samplePixels;
+    RGBAPixel *kernelAlphaPixels;
+    RGBPixel  *kernelPixels;
+        
+    if (sampleHasAlpha) {
+        sampleAlphaPixels = (RGBAPixel *)[sampleRep bitmapData];
+    } else {
+        samplePixels = (RGBPixel *)[sampleRep bitmapData];
     }
-    if ([kernelRep bitmapFormat] == NSAlphaNonpremultipliedBitmapFormat) {
-        NSLog(@"kernel has alpha");
-    }
     
+    if (kernelHasAlpha) {
+        kernelAlphaPixels = (RGBAPixel *)[kernelRep bitmapData];
+    } else {
+        kernelPixels = (RGBPixel *)[kernelRep bitmapData];
+    }
+        
     NSLog(@"sample size is: %ldx%ld",[sampleRep pixelsWide],[sampleRep pixelsHigh]);
     int max_dimension = MAX(MAX(MAX([sampleRep pixelsHigh], [sampleRep pixelsWide]), [kernelRep pixelsHigh]), [kernelRep pixelsWide]);
     NSLog(@"max dimension is: %d",max_dimension);
     
-    // TODO: implement this after everything is working
-//    if (max_dimension <= 128) {
-//        NSLog(@"Use iteration for sample images smaller than 128");
-//        return [NSArray arrayWithObject:[NSValue valueWithPoint:CGPointMake(0, 0)]];
-//    }
-//    if (max_dimension > 2048) {
-//        NSLog(@"Large image! Not quite supported yet.");
-//        return [NSArray arrayWithObject:[NSValue valueWithPoint:CGPointMake(0, 0)]];
-//    }
-//    
-//    if (max_dimension > 128 && max_dimension <= 256) {
-//        log2n = 8;
-//    }
-//    else if (max_dimension > 256 && max_dimension <= 512) {
-//        log2n = 9;
-//    }
-//    else if (max_dimension > 512 && max_dimension <= 1024) {
-//        log2n = 10;
-//    }
-//    else if (max_dimension > 1024 && max_dimension <= 2048) {
-//        log2n = 11;
-//    }
+    // Check for images that are tiny or big (more big sizes should be easily supported)
+    if (max_dimension <= 128) {
+        NSLog(@"Use iteration for sample images smaller than 128");
+        return [NSArray arrayWithObject:[NSValue valueWithPoint:CGPointMake(0, 0)]];
+    }
+    if (max_dimension > 2048) {
+        NSLog(@"Large image! Not quite supported yet.");
+        return [NSArray arrayWithObject:[NSValue valueWithPoint:CGPointMake(0, 0)]];
+    }
     
-    log2n = 8;
-        
+    if (max_dimension > 128 && max_dimension <= 256) {
+        log2n = 8;
+    }
+    else if (max_dimension > 256 && max_dimension <= 512) {
+        log2n = 9;
+    }
+    else if (max_dimension > 512 && max_dimension <= 1024) {
+        log2n = 10;
+    }
+    else if (max_dimension > 1024 && max_dimension <= 2048) {
+        log2n = 11;
+    }
+    
     n = (1 << log2n);
     nOver2 = n / 2;
     nnOver2 = (n*n) / 2;
@@ -113,9 +126,17 @@ typedef struct {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (i < [sampleRep pixelsHigh] && j < [sampleRep pixelsWide]) {
-                RGBAPixel *samplePixel = (RGBAPixel *)&samplePixels[(n*i)+j];
+                RGBAPixel *sampleAlphaPixel;
+                RGBPixel *samplePixel;
+                unsigned char gray;
                 
-                unsigned char gray = ((samplePixel->redByte*0.2989) + (samplePixel->greenByte*0.5870) + (samplePixel->blueByte*0.1140));
+                if (sampleHasAlpha) {
+                    sampleAlphaPixel = (RGBAPixel *)&sampleAlphaPixels[(n*i)+j];
+                    gray = ((sampleAlphaPixel->redByte*0.2989) + (sampleAlphaPixel->greenByte*0.5870) + (sampleAlphaPixel->blueByte*0.1140));
+                } else {
+                    samplePixel = (RGBPixel *)&samplePixels[(n*i)+j];
+                    gray = ((samplePixel->redByte*0.2989) + (samplePixel->greenByte*0.5870) + (samplePixel->blueByte*0.1140));
+                }
                 
                 sampleArray[(n*i)+j] = (float)gray;
             } else {
@@ -124,9 +145,17 @@ typedef struct {
             }
             
             if (i < [kernelRep pixelsHigh] && j < [kernelRep pixelsWide]) {
-                RGBAPixel *kernelPixel = (RGBAPixel *)&kernelPixels[(n*i)+j];
+                RGBAPixel *kernelAlphaPixel;
+                RGBPixel *kernelPixel;
+                unsigned char gray;
                 
-                unsigned char gray = ((kernelPixel->redByte*0.2989) + (kernelPixel->greenByte*0.5870) + (kernelPixel->blueByte*0.1140));
+                if (kernelHasAlpha) {
+                    kernelAlphaPixel = (RGBAPixel *)&kernelAlphaPixels[(n*i)+j];
+                    gray = ((kernelAlphaPixel->redByte*0.2989) + (kernelAlphaPixel->greenByte*0.5870) + (kernelAlphaPixel->blueByte*0.1140));
+                } else {
+                    kernelPixel = (RGBPixel *)&kernelPixels[(n*i)+j];
+                    gray = ((kernelPixel->redByte*0.2989) + (kernelPixel->greenByte*0.5870) + (kernelPixel->blueByte*0.1140));
+                }
                 
                 kernelArray[(n*i)+j] = (float)gray;
             } else {
