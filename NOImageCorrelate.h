@@ -10,6 +10,8 @@
 
 @interface NOImageCorrelate : NSObject
 
+@property (nonatomic, weak) id delegate;
+
 // tweak this value if you're getting too many points back
 @property (nonatomic) float relatedPointThreshold;
 

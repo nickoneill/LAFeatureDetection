@@ -17,12 +17,14 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
-    NSImage *sample = [[NSImage alloc] initByReferencingFile:[[NSBundle mainBundle] pathForResource:@"sobelground" ofType:@"png"]];
+    NSImage *sample = [[NSImage alloc] initByReferencingFile:[[NSBundle mainBundle] pathForResource:@"sobelground" ofType:@"jpg"]];
     NSImage *kernel = [[NSImage alloc] initByReferencingFile:[[NSBundle mainBundle] pathForResource:@"sobelblockrot" ofType:@"png"]];
         
     NSImageView *result = [[NSImageView alloc] initWithFrame:self.view.frame];
 
-    NSArray *points = [NOImageCorrelate probablePointsForImage:kernel inImage:sample];
+    NOImageCorrelate *ic = [[NOImageCorrelate alloc] init];
+    [ic setDelegate:self];
+    NSArray *points = [ic probablePointsForImage:kernel inImage:sample];
     
     for (int i = 0; i < [points count]; i++) {
         CGPoint point = [[points objectAtIndex:i] pointValue];
@@ -30,7 +32,7 @@
     }
     
     [result setImage:sample];
-    
+
     [self.view addSubview:result];
 }
 
