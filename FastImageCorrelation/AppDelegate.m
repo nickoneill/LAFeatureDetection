@@ -17,8 +17,8 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
-    NSImage *sample = [[NSImage alloc] initByReferencingFile:[[NSBundle mainBundle] pathForResource:@"sobelground" ofType:@"jpg"]];
-    NSImage *kernel = [[NSImage alloc] initByReferencingFile:[[NSBundle mainBundle] pathForResource:@"sobelblockrot" ofType:@"png"]];
+    NSImage *sample = [[NSImage alloc] initByReferencingFile:[[NSBundle mainBundle] pathForResource:@"sobelground" ofType:@"png"]];
+    NSImage *kernel = [[NSImage alloc] initByReferencingFile:[[NSBundle mainBundle] pathForResource:@"sobelblock" ofType:@"jpg"]];
         
     NSImageView *result = [[NSImageView alloc] initWithFrame:self.view.frame];
 
@@ -31,9 +31,9 @@
         NSLog(@"point: %f,%f",point.x,point.y);
     }
     
-    [result setImage:sample];
-
-    [self.view addSubview:result];
+//    [result setImage:sample];
+//
+//    [self.view addSubview:result];
 }
 
 @end

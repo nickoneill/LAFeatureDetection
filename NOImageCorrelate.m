@@ -49,7 +49,7 @@ typedef struct {
     uint32_t        n,nOver2,nnOver2;
     float           *sampleArray,*kernelArray,*resultArray;
     float           scale;
-    
+        
     NSBitmapImageRep *sampleRep = [NSBitmapImageRep imageRepWithData:[sample TIFFRepresentation]];
     NSBitmapImageRep *kernelRep = [NSBitmapImageRep imageRepWithData:[kernel TIFFRepresentation]];
     
@@ -153,11 +153,12 @@ typedef struct {
                 RGBPixel *kernelPixel;
                 unsigned char gray;
                 
+                // i and j are inverted here to produce a 180 degree rotation
                 if (kernelHasAlpha) {
-                    kernelAlphaPixel = (RGBAPixel *)&kernelAlphaPixels[([kernelRep pixelsWide]*i)+j];
+                    kernelAlphaPixel = (RGBAPixel *)&kernelAlphaPixels[([kernelRep pixelsWide]*([kernelRep pixelsHigh]-i))+([kernelRep pixelsWide]-j)];
                     gray = ((kernelAlphaPixel->redByte*0.2989) + (kernelAlphaPixel->greenByte*0.5870) + (kernelAlphaPixel->blueByte*0.1140));
                 } else {
-                    kernelPixel = (RGBPixel *)&kernelPixels[([kernelRep pixelsWide]*i)+j];
+                    kernelPixel = (RGBPixel *)&kernelPixels[([kernelRep pixelsWide]*([kernelRep pixelsHigh]-i))+([kernelRep pixelsWide]-j)];
                     gray = ((kernelPixel->redByte*0.2989) + (kernelPixel->greenByte*0.5870) + (kernelPixel->blueByte*0.1140));
                 }
                 
@@ -168,6 +169,22 @@ typedef struct {
             }
         }
     }
+    
+    NSImageView *iv = [[NSImageView alloc] initWithFrame:CGRectMake(0, 0, 256, 256)];
+    NSBitmapImageRep *imrep = [[NSBitmapImageRep alloc] initWithCGImage:[sampleRep CGImage]];
+    
+    for (int i = 0; i < 256; i++) {
+        for (int j = 0; j < 256; j++) {
+            NSUInteger zColourAry[3] = {kernelArray[(n*i)+j],kernelArray[(n*i)+j],kernelArray[(n*i)+j]};
+            [imrep setPixel:zColourAry atX:j y:i];
+        }
+    }
+    NSImage *img = [[NSImage alloc] initWithCGImage:[imrep CGImage] size:NSMakeSize(256, 256)];
+    
+    [iv setImage:img];
+    
+    [[(AppDelegate *)self.delegate view] addSubview:iv];
+
     
     // transfer pixel arrays to split complex format
     vDSP_ctoz((COMPLEX *)sampleArray, 2, &sampleComplex, 1, nnOver2);
@@ -318,8 +335,8 @@ typedef struct {
     return points;
 }
 
-//- (void)displayTestImage
-//{
+- (void)displayTestImage
+{
 //    NSImageView *iv = [[NSImageView alloc] initWithFrame:CGRectMake(0, 0, 256, 256)];
 //    NSBitmapImageRep *imrep = [[NSBitmapImageRep alloc] initWithCGImage:[sampleRep CGImage]];
 //    
@@ -334,6 +351,6 @@ typedef struct {
 //    [iv setImage:img];
 //    
 //    [[(AppDelegate *)self.delegate view] addSubview:iv];
-//}
+}
 
 @end
