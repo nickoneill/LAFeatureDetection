@@ -3,7 +3,7 @@
 //  FastImageCorrelation
 //
 //  Created by Nick O'Neill on 4/15/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Launch Apps. All rights reserved.
 //
 
 #import "NOImageCorrelate.h"
@@ -333,6 +333,12 @@ typedef struct {
     free(resultImagColumn.imagp);
     
     return points;
+}
+
+- (float*)applySobel:(float*)imageArray
+{
+    
+    
 }
 
 - (void)displayTestImage
