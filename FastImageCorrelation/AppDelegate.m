@@ -19,7 +19,7 @@
 {
     // Insert code here to initialize your application
     NSImage *sample = [[NSImage alloc] initByReferencingFile:[[NSBundle mainBundle] pathForResource:@"ground" ofType:@"png"]];
-    NSImage *kernel = [[NSImage alloc] initByReferencingFile:[[NSBundle mainBundle] pathForResource:@"alcatraz-kernel" ofType:@"png"]];
+//    NSImage *kernel = [[NSImage alloc] initByReferencingFile:[[NSBundle mainBundle] pathForResource:@"alcatraz-kernel" ofType:@"png"]];
         
 
 //    NOImageCorrelate *ic = [[NOImageCorrelate alloc] init];
@@ -48,6 +48,7 @@ typedef struct {
     RGBAPixel *sampleAlphaPixels = (RGBAPixel *)[sampleRep bitmapData];
     int n = 256;
     float *sampleArray = (float *)malloc((n*n) * sizeof(float));
+    float *sobelArray  = (float *)malloc((n*n) * sizeof(float));
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -77,20 +78,10 @@ typedef struct {
 //    xKernel[7] = 0.0;
 //    xKernel[8] = 1.0;
     
-    int16_t newxKernel[9] = {-1, 0, 1, -2, 0, 2, -1, 0, 1};
+    float xKernel[9] = {-1, 0, 1, -2, 0, 2, -1, 0, 1};
+    float yKernel[9] = {-1, -2, -1, 0, 0, 0, 1, 2, 1}; //= (float *)malloc(9 * sizeof(float));
 
-    float *yKernel = (float *)malloc(9 * sizeof(float));
-    yKernel[0] = -1;
-    yKernel[1] = -2;
-    yKernel[2] = -1;
-    yKernel[3] = 0;
-    yKernel[4] = 0;
-    yKernel[5] = 0;
-    yKernel[6] = 1;
-    yKernel[7] = 2;
-    yKernel[8] = 1;
-
-    Pixel_F bgColor = 0.0;
+    Pixel_F bgColor = 0;
     
     vImage_Buffer buf;
     buf.data = sampleArray;
@@ -98,21 +89,33 @@ typedef struct {
     buf.width = 256;
     buf.rowBytes = 256*4;
     
-    vImage_Buffer dest;
-    dest.data = malloc(n*n * sizeof(float));
-    dest.height = 256;
-    dest.width = 256;
-    dest.rowBytes = 256*4;
-    
-    vImageConvolve_PlanarF(&buf, &dest, nil, 0, 0, newxKernel, 3, 3, bgColor, kvImageEdgeExtend);
+    vImage_Buffer xdest;
+    xdest.data = malloc(n*n * sizeof(float));
+    xdest.height = 256;
+    xdest.width = 256;
+    xdest.rowBytes = 256*4;
+
+    vImage_Buffer ydest;
+    ydest.data = malloc(n*n * sizeof(float));
+    ydest.height = 256;
+    ydest.width = 256;
+    ydest.rowBytes = 256*4;
+
+//    vImageConvolve_ARGB8888(&buf, &dest, nil, 0, 0, newxKernel, 3, 3, 0, 0, kvImageEdgeExtend);
+//    vImageConvolve_ARGBFFFF(&buf, &dest, nil, 0, 0, yKernel, 3, 3, &bgColor, kvImageEdgeExtend);
+    vImageConvolve_PlanarF(&buf, &xdest, nil, 0, 0, xKernel, 3, 3, bgColor, kvImageEdgeExtend);
+    vImageConvolve_PlanarF(&buf, &ydest, nil, 0, 0, yKernel, 3, 3, bgColor, kvImageEdgeExtend);
     
     NSImageView *iv = [[NSImageView alloc] initWithFrame:CGRectMake(0, 0, 256, 256)];
     NSBitmapImageRep *imrep = [[NSBitmapImageRep alloc] initWithCGImage:[sampleRep CGImage]];
     
-    float *temp = dest.data;
+    float *xtemp = xdest.data;
+    float *ytemp = ydest.data;
     for (int i = 0; i < 256; i++) {
         for (int j = 0; j < 256; j++) {
-            NSUInteger zColourAry[3] = {temp[(n*i)+j],temp[(n*i)+j],temp[(n*i)+j]};
+            sobelArray[(n*i)+j] = sqrtf(exp2f(xtemp[(n*i)+j])+exp2f(ytemp[(n*i)+j]));
+            
+            NSUInteger zColourAry[3] = {sobelArray[(n*i)+j],sobelArray[(n*i)+j],sobelArray[(n*i)+j]};
             [imrep setPixel:zColourAry atX:j y:i];
         }
     }
