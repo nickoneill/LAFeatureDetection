@@ -178,7 +178,7 @@ typedef struct {
     
     kernelArray = [self applySobel:kernelArray forN:n];
     sampleArray = [self applySobel:sampleArray forN:n];
-    
+        
     // transfer pixel arrays to split complex format
     vDSP_ctoz((COMPLEX *)sampleArray, 2, &sampleComplex, 1, nnOver2);
     vDSP_ctoz((COMPLEX *)kernelArray, 2, &kernelComplex, 1, nnOver2);
@@ -329,6 +329,8 @@ typedef struct {
 
 - (float*)applySobel:(float*)imageArray forN:(int)n
 {
+    // sobel is a simple edge detection filter, good for images with some contrast
+    
     float xKernel[9] = {-1, 0, 1, -2, 0, 2, -1, 0, 1};
     float yKernel[9] = {-1, -2, -1, 0, 0, 0, 1, 2, 1};
     
@@ -359,10 +361,13 @@ typedef struct {
     float *ytemp = ydest.data;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            // apply combined magnitude of both vertical and horizontal directions
+            // calculate combined magnitude of both vertical and horizontal directions
             imageArray[(n*i)+j] = sqrtf(powf(xtemp[(n*i)+j],2)+powf(ytemp[(n*i)+j],2));
         }
     }
+    
+    free(xdest.data);
+    free(ydest.data);
 
     return imageArray;
 }
