@@ -33,6 +33,8 @@
 		D05275FC15570BCB00F464CC /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D05275FB15570BCB00F464CC /* Accelerate.framework */; };
 		D05275FF155891D300F464CC /* sobelblockrot.png in Resources */ = {isa = PBXBuildFile; fileRef = D05275FD155891D300F464CC /* sobelblockrot.png */; };
 		D0527600155891D300F464CC /* sobelground.png in Resources */ = {isa = PBXBuildFile; fileRef = D05275FE155891D300F464CC /* sobelground.png */; };
+		D0ABE8001576F52A00A84A96 /* lax-sample.png in Resources */ = {isa = PBXBuildFile; fileRef = D0ABE7FE1576F52A00A84A96 /* lax-sample.png */; };
+		D0ABE8011576F52A00A84A96 /* plane-kernel.png in Resources */ = {isa = PBXBuildFile; fileRef = D0ABE7FF1576F52A00A84A96 /* plane-kernel.png */; };
 		D0B38894156AE9AC009A85E0 /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B38893156AE9AC009A85E0 /* ground.png */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +85,8 @@
 		D05275FB15570BCB00F464CC /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		D05275FD155891D300F464CC /* sobelblockrot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sobelblockrot.png; sourceTree = "<group>"; };
 		D05275FE155891D300F464CC /* sobelground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sobelground.png; sourceTree = "<group>"; };
+		D0ABE7FE1576F52A00A84A96 /* lax-sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lax-sample.png"; sourceTree = "<group>"; };
+		D0ABE7FF1576F52A00A84A96 /* plane-kernel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plane-kernel.png"; sourceTree = "<group>"; };
 		D0B38893156AE9AC009A85E0 /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +115,8 @@
 		D00AA3AA1541D7AF006586B3 /* Example Images */ = {
 			isa = PBXGroup;
 			children = (
+				D0ABE7FE1576F52A00A84A96 /* lax-sample.png */,
+				D0ABE7FF1576F52A00A84A96 /* plane-kernel.png */,
 				D0B38893156AE9AC009A85E0 /* ground.png */,
 				D03DAA7515602D90003A8FB2 /* sobelblock.jpg */,
 				D03DAA7615602D90003A8FB2 /* sobelblock.png */,
@@ -311,6 +317,8 @@
 				D03DAA7715602D90003A8FB2 /* sobelblock.jpg in Resources */,
 				D03DAA7815602D90003A8FB2 /* sobelblock.png in Resources */,
 				D0B38894156AE9AC009A85E0 /* ground.png in Resources */,
+				D0ABE8001576F52A00A84A96 /* lax-sample.png in Resources */,
+				D0ABE8011576F52A00A84A96 /* plane-kernel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

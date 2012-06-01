@@ -88,7 +88,7 @@ typedef struct {
         NSLog(@"Use iteration for sample images smaller than 128");
         return [NSArray arrayWithObject:[NSValue valueWithPoint:CGPointMake(0, 0)]];
     }
-    if (max_dimension > 2048) {
+    if (max_dimension > 8192) {
         NSLog(@"Large image! Not quite supported yet.");
         return [NSArray arrayWithObject:[NSValue valueWithPoint:CGPointMake(0, 0)]];
     }
@@ -104,6 +104,12 @@ typedef struct {
     }
     else if (max_dimension > 1024 && max_dimension <= 2048) {
         log2n = 11;
+    }
+    else if (max_dimension > 2048 && max_dimension <= 4096) {
+        log2n = 12;
+    }
+    else if (max_dimension > 4096 && max_dimension <= 8192) {
+        log2n = 13;
     }
     
     n = (1 << log2n);
@@ -170,21 +176,8 @@ typedef struct {
         }
     }
     
-    NSImageView *iv = [[NSImageView alloc] initWithFrame:CGRectMake(0, 0, 256, 256)];
-    NSBitmapImageRep *imrep = [[NSBitmapImageRep alloc] initWithCGImage:[sampleRep CGImage]];
-    
-    for (int i = 0; i < 256; i++) {
-        for (int j = 0; j < 256; j++) {
-            NSUInteger zColourAry[3] = {kernelArray[(n*i)+j],kernelArray[(n*i)+j],kernelArray[(n*i)+j]};
-            [imrep setPixel:zColourAry atX:j y:i];
-        }
-    }
-    NSImage *img = [[NSImage alloc] initWithCGImage:[imrep CGImage] size:NSMakeSize(256, 256)];
-    
-    [iv setImage:img];
-    
-    [[(AppDelegate *)self.delegate view] addSubview:iv];
-
+    kernelArray = [self applySobel:kernelArray forN:n];
+    sampleArray = [self applySobel:sampleArray forN:n];
     
     // transfer pixel arrays to split complex format
     vDSP_ctoz((COMPLEX *)sampleArray, 2, &sampleComplex, 1, nnOver2);
@@ -303,7 +296,6 @@ typedef struct {
             int row = floor(i/n);
             int col = i-(row*n);
 
-            NSLog(@"adding val %f index %d at %d,%d",resultArray[i],i,row,col);
             [points addObject:[NSValue valueWithPoint:CGPointMake(row, col)]];
         }
     }
@@ -335,10 +327,44 @@ typedef struct {
     return points;
 }
 
-- (float*)applySobel:(float*)imageArray
+- (float*)applySobel:(float*)imageArray forN:(int)n
 {
+    float xKernel[9] = {-1, 0, 1, -2, 0, 2, -1, 0, 1};
+    float yKernel[9] = {-1, -2, -1, 0, 0, 0, 1, 2, 1};
     
+    Pixel_F bgColor = 0;
     
+    vImage_Buffer buf;
+    buf.data = imageArray;
+    buf.height = n;
+    buf.width = n;
+    buf.rowBytes = n*sizeof(float);
+    
+    vImage_Buffer xdest;
+    xdest.data = malloc(n*n * sizeof(float));
+    xdest.height = n;
+    xdest.width = n;
+    xdest.rowBytes = n*sizeof(float);
+    
+    vImage_Buffer ydest;
+    ydest.data = malloc(n*n * sizeof(float));
+    ydest.height = n;
+    ydest.width = n;
+    ydest.rowBytes = n*sizeof(float);
+    
+    vImageConvolve_PlanarF(&buf, &xdest, nil, 0, 0, xKernel, 3, 3, bgColor, kvImageBackgroundColorFill);
+    vImageConvolve_PlanarF(&buf, &ydest, nil, 0, 0, yKernel, 3, 3, bgColor, kvImageBackgroundColorFill);
+
+    float *xtemp = xdest.data;
+    float *ytemp = ydest.data;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            // apply combined magnitude of both vertical and horizontal directions
+            imageArray[(n*i)+j] = sqrtf(powf(xtemp[(n*i)+j],2)+powf(ytemp[(n*i)+j],2));
+        }
+    }
+
+    return imageArray;
 }
 
 - (void)displayTestImage
