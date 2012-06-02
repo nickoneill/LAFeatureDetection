@@ -117,7 +117,6 @@ typedef struct {
     nnOver2 = (n*n) / 2;
     
     NSLog(@"adjusted dimension to %d per side",n);
-    NSLog(@"total pixel count: %d",n*n);
     
     // allocate memory
     sampleComplex.realp = (float *) malloc(nnOver2 * sizeof(float));
@@ -176,6 +175,7 @@ typedef struct {
         }
     }
     
+    // apply sobel filter to each, increasing the liklihood of matching
     kernelArray = [self applySobel:kernelArray forN:n];
     sampleArray = [self applySobel:sampleArray forN:n];
         
@@ -296,7 +296,7 @@ typedef struct {
             int row = floor(i/n);
             int col = i-(row*n);
 
-            [points addObject:[NSValue valueWithPoint:CGPointMake(row, col)]];
+            [points addObject:[NSValue valueWithPoint:CGPointMake(col, row)]];
         }
     }
     
@@ -330,7 +330,6 @@ typedef struct {
 - (float*)applySobel:(float*)imageArray forN:(int)n
 {
     // sobel is a simple edge detection filter, good for images with some contrast
-    
     float xKernel[9] = {-1, 0, 1, -2, 0, 2, -1, 0, 1};
     float yKernel[9] = {-1, -2, -1, 0, 0, 0, 1, 2, 1};
     
@@ -354,6 +353,7 @@ typedef struct {
     ydest.width = n;
     ydest.rowBytes = n*sizeof(float);
     
+    // convolve with each kernel which estimates the gradient in each direction
     vImageConvolve_PlanarF(&buf, &xdest, nil, 0, 0, xKernel, 3, 3, bgColor, kvImageBackgroundColorFill);
     vImageConvolve_PlanarF(&buf, &ydest, nil, 0, 0, yKernel, 3, 3, bgColor, kvImageBackgroundColorFill);
 
@@ -370,24 +370,6 @@ typedef struct {
     free(ydest.data);
 
     return imageArray;
-}
-
-- (void)displayTestImage
-{
-//    NSImageView *iv = [[NSImageView alloc] initWithFrame:CGRectMake(0, 0, 256, 256)];
-//    NSBitmapImageRep *imrep = [[NSBitmapImageRep alloc] initWithCGImage:[sampleRep CGImage]];
-//    
-//    for (int i = 0; i < 256; i++) {
-//        for (int j = 0; j < 256; j++) {
-//            NSUInteger zColourAry[3] = {kernelArray[(n*i)+j],kernelArray[(n*i)+j],kernelArray[(n*i)+j]};
-//            [imrep setPixel:zColourAry atX:j y:i];
-//        }
-//    }
-//    NSImage *img = [[NSImage alloc] initWithCGImage:[imrep CGImage] size:NSMakeSize(256, 256)];
-//    
-//    [iv setImage:img];
-//    
-//    [[(AppDelegate *)self.delegate view] addSubview:iv];
 }
 
 @end

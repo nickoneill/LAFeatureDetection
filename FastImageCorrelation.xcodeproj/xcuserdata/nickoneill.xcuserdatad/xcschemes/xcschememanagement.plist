@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>iOSFastImageCorrelation.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>D04A3751153B7E14005621CF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D0ABE8061579AF1400A84A96</key>
 		<dict>
 			<key>primary</key>
 			<true/>

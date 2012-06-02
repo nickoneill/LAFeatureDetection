@@ -35,6 +35,12 @@
 		D0527600155891D300F464CC /* sobelground.png in Resources */ = {isa = PBXBuildFile; fileRef = D05275FE155891D300F464CC /* sobelground.png */; };
 		D0ABE8001576F52A00A84A96 /* lax-sample.png in Resources */ = {isa = PBXBuildFile; fileRef = D0ABE7FE1576F52A00A84A96 /* lax-sample.png */; };
 		D0ABE8011576F52A00A84A96 /* plane-kernel.png in Resources */ = {isa = PBXBuildFile; fileRef = D0ABE7FF1576F52A00A84A96 /* plane-kernel.png */; };
+		D0ABE80A1579AF1400A84A96 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0ABE8091579AF1400A84A96 /* UIKit.framework */; };
+		D0ABE80C1579AF1400A84A96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0ABE80B1579AF1400A84A96 /* Foundation.framework */; };
+		D0ABE80E1579AF1400A84A96 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0ABE80D1579AF1400A84A96 /* CoreGraphics.framework */; };
+		D0ABE8141579AF1400A84A96 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0ABE8121579AF1400A84A96 /* InfoPlist.strings */; };
+		D0ABE8161579AF1400A84A96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ABE8151579AF1400A84A96 /* main.m */; };
+		D0ABE81A1579AF1400A84A96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ABE8191579AF1400A84A96 /* AppDelegate.m */; };
 		D0B38894156AE9AC009A85E0 /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B38893156AE9AC009A85E0 /* ground.png */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +93,16 @@
 		D05275FE155891D300F464CC /* sobelground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sobelground.png; sourceTree = "<group>"; };
 		D0ABE7FE1576F52A00A84A96 /* lax-sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lax-sample.png"; sourceTree = "<group>"; };
 		D0ABE7FF1576F52A00A84A96 /* plane-kernel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plane-kernel.png"; sourceTree = "<group>"; };
+		D0ABE8071579AF1400A84A96 /* iOSFastImageCorrelation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSFastImageCorrelation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0ABE8091579AF1400A84A96 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		D0ABE80B1579AF1400A84A96 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D0ABE80D1579AF1400A84A96 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		D0ABE8111579AF1400A84A96 /* iOSFastImageCorrelation-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOSFastImageCorrelation-Info.plist"; sourceTree = "<group>"; };
+		D0ABE8131579AF1400A84A96 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D0ABE8151579AF1400A84A96 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D0ABE8171579AF1400A84A96 /* iOSFastImageCorrelation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSFastImageCorrelation-Prefix.pch"; sourceTree = "<group>"; };
+		D0ABE8181579AF1400A84A96 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D0ABE8191579AF1400A84A96 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D0B38893156AE9AC009A85E0 /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +122,16 @@
 			files = (
 				D04A3754153B7E14005621CF /* SenTestingKit.framework in Frameworks */,
 				D04A3755153B7E14005621CF /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0ABE8041579AF1400A84A96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0ABE80A1579AF1400A84A96 /* UIKit.framework in Frameworks */,
+				D0ABE80C1579AF1400A84A96 /* Foundation.framework in Frameworks */,
+				D0ABE80E1579AF1400A84A96 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,12 +160,16 @@
 				D00AA3B11541D802006586B3 /* screen.png */,
 			);
 			name = "Example Images";
+			path = FastImageCorrelation;
 			sourceTree = "<group>";
 		};
 		D04A3726153B7E14005621CF = {
 			isa = PBXGroup;
 			children = (
+				D04A3769153B7FD7005621CF /* NOImageCorrelate */,
+				D00AA3AA1541D7AF006586B3 /* Example Images */,
 				D04A373B153B7E14005621CF /* FastImageCorrelation */,
+				D0ABE80F1579AF1400A84A96 /* iOSFastImageCorrelation */,
 				D04A3758153B7E14005621CF /* FastImageCorrelationTests */,
 				D04A3734153B7E14005621CF /* Frameworks */,
 				D04A3732153B7E14005621CF /* Products */,
@@ -151,6 +181,7 @@
 			children = (
 				D04A3731153B7E14005621CF /* FastImageCorrelation.app */,
 				D04A3752153B7E14005621CF /* FastImageCorrelationTests.octest */,
+				D0ABE8071579AF1400A84A96 /* iOSFastImageCorrelation.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -161,6 +192,9 @@
 				D05275FB15570BCB00F464CC /* Accelerate.framework */,
 				D04A3735153B7E14005621CF /* Cocoa.framework */,
 				D04A3753153B7E14005621CF /* SenTestingKit.framework */,
+				D0ABE8091579AF1400A84A96 /* UIKit.framework */,
+				D0ABE80B1579AF1400A84A96 /* Foundation.framework */,
+				D0ABE80D1579AF1400A84A96 /* CoreGraphics.framework */,
 				D04A3737153B7E14005621CF /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -179,8 +213,6 @@
 		D04A373B153B7E14005621CF /* FastImageCorrelation */ = {
 			isa = PBXGroup;
 			children = (
-				D00AA3AA1541D7AF006586B3 /* Example Images */,
-				D04A3769153B7FD7005621CF /* NOImageCorrelate */,
 				D04A3747153B7E14005621CF /* AppDelegate.h */,
 				D04A3748153B7E14005621CF /* AppDelegate.m */,
 				D04A374A153B7E14005621CF /* MainMenu.xib */,
@@ -227,6 +259,28 @@
 				D04A376B153B7FF2005621CF /* NOImageCorrelate.m */,
 			);
 			name = NOImageCorrelate;
+			path = FastImageCorrelation;
+			sourceTree = "<group>";
+		};
+		D0ABE80F1579AF1400A84A96 /* iOSFastImageCorrelation */ = {
+			isa = PBXGroup;
+			children = (
+				D0ABE8181579AF1400A84A96 /* AppDelegate.h */,
+				D0ABE8191579AF1400A84A96 /* AppDelegate.m */,
+				D0ABE8101579AF1400A84A96 /* Supporting Files */,
+			);
+			path = iOSFastImageCorrelation;
+			sourceTree = "<group>";
+		};
+		D0ABE8101579AF1400A84A96 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D0ABE8111579AF1400A84A96 /* iOSFastImageCorrelation-Info.plist */,
+				D0ABE8121579AF1400A84A96 /* InfoPlist.strings */,
+				D0ABE8151579AF1400A84A96 /* main.m */,
+				D0ABE8171579AF1400A84A96 /* iOSFastImageCorrelation-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +322,23 @@
 			productReference = D04A3752153B7E14005621CF /* FastImageCorrelationTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		D0ABE8061579AF1400A84A96 /* iOSFastImageCorrelation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0ABE81B1579AF1400A84A96 /* Build configuration list for PBXNativeTarget "iOSFastImageCorrelation" */;
+			buildPhases = (
+				D0ABE8031579AF1400A84A96 /* Sources */,
+				D0ABE8041579AF1400A84A96 /* Frameworks */,
+				D0ABE8051579AF1400A84A96 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOSFastImageCorrelation;
+			productName = iOSFastImageCorrelation;
+			productReference = D0ABE8071579AF1400A84A96 /* iOSFastImageCorrelation.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -290,6 +361,7 @@
 			targets = (
 				D04A3730153B7E14005621CF /* FastImageCorrelation */,
 				D04A3751153B7E14005621CF /* FastImageCorrelationTests */,
+				D0ABE8061579AF1400A84A96 /* iOSFastImageCorrelation */,
 			);
 		};
 /* End PBXProject section */
@@ -330,6 +402,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D0ABE8051579AF1400A84A96 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0ABE8141579AF1400A84A96 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -364,6 +444,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D04A3760153B7E14005621CF /* FastImageCorrelationTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0ABE8031579AF1400A84A96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0ABE8161579AF1400A84A96 /* main.m in Sources */,
+				D0ABE81A1579AF1400A84A96 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +495,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				D04A375C153B7E14005621CF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D0ABE8121579AF1400A84A96 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0ABE8131579AF1400A84A96 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -510,6 +607,48 @@
 			};
 			name = Release;
 		};
+		D0ABE81C1579AF1400A84A96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOSFastImageCorrelation/iOSFastImageCorrelation-Prefix.pch";
+				INFOPLIST_FILE = "iOSFastImageCorrelation/iOSFastImageCorrelation-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D0ABE81D1579AF1400A84A96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOSFastImageCorrelation/iOSFastImageCorrelation-Prefix.pch";
+				INFOPLIST_FILE = "iOSFastImageCorrelation/iOSFastImageCorrelation-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -539,6 +678,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		D0ABE81B1579AF1400A84A96 /* Build configuration list for PBXNativeTarget "iOSFastImageCorrelation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0ABE81C1579AF1400A84A96 /* Debug */,
+				D0ABE81D1579AF1400A84A96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
