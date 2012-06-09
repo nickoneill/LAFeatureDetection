@@ -8,34 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		D0090942157DB656004981B8 /* CGImageToBitmap.m in Sources */ = {isa = PBXBuildFile; fileRef = D0090941157DB656004981B8 /* CGImageToBitmap.m */; };
-		D00ADC1A1580390C00464336 /* flag-kernel.png in Resources */ = {isa = PBXBuildFile; fileRef = D00ADC191580390C00464336 /* flag-kernel.png */; };
-		D02A1B1E155AE55F0067350F /* alcatraz-kernel.png in Resources */ = {isa = PBXBuildFile; fileRef = D02A1B18155AE55F0067350F /* alcatraz-kernel.png */; };
-		D02A1B1F155AE55F0067350F /* candlestick-kernel.png in Resources */ = {isa = PBXBuildFile; fileRef = D02A1B19155AE55F0067350F /* candlestick-kernel.png */; };
-		D02A1B20155AE55F0067350F /* palace-kernel.png in Resources */ = {isa = PBXBuildFile; fileRef = D02A1B1A155AE55F0067350F /* palace-kernel.png */; };
-		D02A1B21155AE55F0067350F /* sf-sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D02A1B1B155AE55F0067350F /* sf-sample.jpg */; };
-		D02A1B22155AE55F0067350F /* sf-sample.png in Resources */ = {isa = PBXBuildFile; fileRef = D02A1B1C155AE55F0067350F /* sf-sample.png */; };
-		D02A1B23155AE55F0067350F /* ship-kernel.png in Resources */ = {isa = PBXBuildFile; fileRef = D02A1B1D155AE55F0067350F /* ship-kernel.png */; };
 		D04A3736153B7E14005621CF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04A3735153B7E14005621CF /* Cocoa.framework */; };
 		D04A3740153B7E14005621CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D04A373E153B7E14005621CF /* InfoPlist.strings */; };
 		D04A3742153B7E14005621CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D04A3741153B7E14005621CF /* main.m */; };
-		D04A3746153B7E14005621CF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D04A3744153B7E14005621CF /* Credits.rtf */; };
 		D04A3749153B7E14005621CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D04A3748153B7E14005621CF /* AppDelegate.m */; };
 		D04A374C153B7E14005621CF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D04A374A153B7E14005621CF /* MainMenu.xib */; };
 		D04A3754153B7E14005621CF /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04A3753153B7E14005621CF /* SenTestingKit.framework */; };
 		D04A3755153B7E14005621CF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04A3735153B7E14005621CF /* Cocoa.framework */; };
 		D04A375D153B7E14005621CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D04A375B153B7E14005621CF /* InfoPlist.strings */; };
-		D04A3760153B7E14005621CF /* FastImageCorrelationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D04A375F153B7E14005621CF /* FastImageCorrelationTests.m */; };
-		D04A376C153B7FF2005621CF /* NOImageCorrelate.m in Sources */ = {isa = PBXBuildFile; fileRef = D04A376B153B7FF2005621CF /* NOImageCorrelate.m */; };
+		D04A3760153B7E14005621CF /* FeatureDetectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D04A375F153B7E14005621CF /* FeatureDetectionTests.m */; };
+		D04A376C153B7FF2005621CF /* LAFeatureDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = D04A376B153B7FF2005621CF /* LAFeatureDetection.m */; };
 		D05275FC15570BCB00F464CC /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D05275FB15570BCB00F464CC /* Accelerate.framework */; };
-		D0ABE8001576F52A00A84A96 /* lax-sample.png in Resources */ = {isa = PBXBuildFile; fileRef = D0ABE7FE1576F52A00A84A96 /* lax-sample.png */; };
-		D0ABE8011576F52A00A84A96 /* plane-kernel.png in Resources */ = {isa = PBXBuildFile; fileRef = D0ABE7FF1576F52A00A84A96 /* plane-kernel.png */; };
 		D0ABE80A1579AF1400A84A96 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0ABE8091579AF1400A84A96 /* UIKit.framework */; };
 		D0ABE80C1579AF1400A84A96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0ABE80B1579AF1400A84A96 /* Foundation.framework */; };
 		D0ABE80E1579AF1400A84A96 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0ABE80D1579AF1400A84A96 /* CoreGraphics.framework */; };
 		D0ABE8141579AF1400A84A96 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0ABE8121579AF1400A84A96 /* InfoPlist.strings */; };
 		D0ABE8161579AF1400A84A96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ABE8151579AF1400A84A96 /* main.m */; };
 		D0ABE81A1579AF1400A84A96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ABE8191579AF1400A84A96 /* AppDelegate.m */; };
-		D0ABE831157AF98D00A84A96 /* shuttle-sample.png in Resources */ = {isa = PBXBuildFile; fileRef = D0ABE82F157AF98D00A84A96 /* shuttle-sample.png */; };
+		D0FEEF451583D44900F99148 /* flag-kernel.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FEEF3F1583D44900F99148 /* flag-kernel.png */; };
+		D0FEEF461583D44900F99148 /* lax-sample.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FEEF401583D44900F99148 /* lax-sample.png */; };
+		D0FEEF471583D44900F99148 /* plane-kernel.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FEEF411583D44900F99148 /* plane-kernel.png */; };
+		D0FEEF481583D44900F99148 /* shuttle-sample.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FEEF421583D44900F99148 /* shuttle-sample.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,48 +44,41 @@
 /* Begin PBXFileReference section */
 		D0090940157DB656004981B8 /* CGImageToBitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGImageToBitmap.h; sourceTree = SOURCE_ROOT; };
 		D0090941157DB656004981B8 /* CGImageToBitmap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGImageToBitmap.m; sourceTree = SOURCE_ROOT; };
-		D00ADC191580390C00464336 /* flag-kernel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flag-kernel.png"; sourceTree = SOURCE_ROOT; };
-		D02A1B18155AE55F0067350F /* alcatraz-kernel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alcatraz-kernel.png"; sourceTree = "<group>"; };
-		D02A1B19155AE55F0067350F /* candlestick-kernel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "candlestick-kernel.png"; sourceTree = "<group>"; };
-		D02A1B1A155AE55F0067350F /* palace-kernel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "palace-kernel.png"; sourceTree = "<group>"; };
-		D02A1B1B155AE55F0067350F /* sf-sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "sf-sample.jpg"; sourceTree = "<group>"; };
-		D02A1B1C155AE55F0067350F /* sf-sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sf-sample.png"; sourceTree = "<group>"; };
-		D02A1B1D155AE55F0067350F /* ship-kernel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ship-kernel.png"; sourceTree = "<group>"; };
-		D04A3731153B7E14005621CF /* FastImageCorrelation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastImageCorrelation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D04A3731153B7E14005621CF /* FeatureDetection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeatureDetection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D04A3735153B7E14005621CF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D04A3738153B7E14005621CF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		D04A3739153B7E14005621CF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D04A373A153B7E14005621CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		D04A373D153B7E14005621CF /* FastImageCorrelation-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FastImageCorrelation-Info.plist"; sourceTree = "<group>"; };
+		D04A373D153B7E14005621CF /* FeatureDetection-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FeatureDetection-Info.plist"; sourceTree = "<group>"; };
 		D04A373F153B7E14005621CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D04A3741153B7E14005621CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D04A3743153B7E14005621CF /* FastImageCorrelation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FastImageCorrelation-Prefix.pch"; sourceTree = "<group>"; };
-		D04A3745153B7E14005621CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		D04A3743153B7E14005621CF /* FeatureDetection-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeatureDetection-Prefix.pch"; sourceTree = "<group>"; };
 		D04A3747153B7E14005621CF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D04A3748153B7E14005621CF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D04A374B153B7E14005621CF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		D04A3752153B7E14005621CF /* FastImageCorrelationTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastImageCorrelationTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D04A3752153B7E14005621CF /* FeatureDetectionTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeatureDetectionTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D04A3753153B7E14005621CF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		D04A375A153B7E14005621CF /* FastImageCorrelationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FastImageCorrelationTests-Info.plist"; sourceTree = "<group>"; };
+		D04A375A153B7E14005621CF /* FeatureDetectionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FeatureDetectionTests-Info.plist"; sourceTree = "<group>"; };
 		D04A375C153B7E14005621CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D04A375E153B7E14005621CF /* FastImageCorrelationTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FastImageCorrelationTests.h; sourceTree = "<group>"; };
-		D04A375F153B7E14005621CF /* FastImageCorrelationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FastImageCorrelationTests.m; sourceTree = "<group>"; };
-		D04A376A153B7FF2005621CF /* NOImageCorrelate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NOImageCorrelate.h; sourceTree = SOURCE_ROOT; };
-		D04A376B153B7FF2005621CF /* NOImageCorrelate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NOImageCorrelate.m; sourceTree = SOURCE_ROOT; };
+		D04A375E153B7E14005621CF /* FeatureDetectionTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeatureDetectionTests.h; sourceTree = "<group>"; };
+		D04A375F153B7E14005621CF /* FeatureDetectionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeatureDetectionTests.m; sourceTree = "<group>"; };
+		D04A376A153B7FF2005621CF /* LAFeatureDetection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAFeatureDetection.h; sourceTree = SOURCE_ROOT; };
+		D04A376B153B7FF2005621CF /* LAFeatureDetection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAFeatureDetection.m; sourceTree = SOURCE_ROOT; };
 		D05275FB15570BCB00F464CC /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		D0ABE7FE1576F52A00A84A96 /* lax-sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lax-sample.png"; sourceTree = "<group>"; };
-		D0ABE7FF1576F52A00A84A96 /* plane-kernel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plane-kernel.png"; sourceTree = "<group>"; };
-		D0ABE8071579AF1400A84A96 /* iOSFastImageCorrelation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSFastImageCorrelation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0ABE8071579AF1400A84A96 /* iOSFeatureDetection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSFeatureDetection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0ABE8091579AF1400A84A96 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		D0ABE80B1579AF1400A84A96 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D0ABE80D1579AF1400A84A96 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		D0ABE8111579AF1400A84A96 /* iOSFastImageCorrelation-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOSFastImageCorrelation-Info.plist"; sourceTree = "<group>"; };
+		D0ABE8111579AF1400A84A96 /* iOSFeatureDetection-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOSFeatureDetection-Info.plist"; sourceTree = "<group>"; };
 		D0ABE8131579AF1400A84A96 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D0ABE8151579AF1400A84A96 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D0ABE8171579AF1400A84A96 /* iOSFastImageCorrelation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSFastImageCorrelation-Prefix.pch"; sourceTree = "<group>"; };
+		D0ABE8171579AF1400A84A96 /* iOSFeatureDetection-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSFeatureDetection-Prefix.pch"; sourceTree = "<group>"; };
 		D0ABE8181579AF1400A84A96 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D0ABE8191579AF1400A84A96 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D0ABE82F157AF98D00A84A96 /* shuttle-sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shuttle-sample.png"; sourceTree = SOURCE_ROOT; };
+		D0FEEF3F1583D44900F99148 /* flag-kernel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-kernel.png"; path = "FeatureDetection/Example Images/flag-kernel.png"; sourceTree = SOURCE_ROOT; };
+		D0FEEF401583D44900F99148 /* lax-sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lax-sample.png"; path = "FeatureDetection/Example Images/lax-sample.png"; sourceTree = SOURCE_ROOT; };
+		D0FEEF411583D44900F99148 /* plane-kernel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "plane-kernel.png"; path = "FeatureDetection/Example Images/plane-kernel.png"; sourceTree = SOURCE_ROOT; };
+		D0FEEF421583D44900F99148 /* shuttle-sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shuttle-sample.png"; path = "FeatureDetection/Example Images/shuttle-sample.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,16 +116,10 @@
 		D00AA3AA1541D7AF006586B3 /* Example Images */ = {
 			isa = PBXGroup;
 			children = (
-				D00ADC191580390C00464336 /* flag-kernel.png */,
-				D0ABE82F157AF98D00A84A96 /* shuttle-sample.png */,
-				D0ABE7FE1576F52A00A84A96 /* lax-sample.png */,
-				D0ABE7FF1576F52A00A84A96 /* plane-kernel.png */,
-				D02A1B18155AE55F0067350F /* alcatraz-kernel.png */,
-				D02A1B19155AE55F0067350F /* candlestick-kernel.png */,
-				D02A1B1A155AE55F0067350F /* palace-kernel.png */,
-				D02A1B1B155AE55F0067350F /* sf-sample.jpg */,
-				D02A1B1C155AE55F0067350F /* sf-sample.png */,
-				D02A1B1D155AE55F0067350F /* ship-kernel.png */,
+				D0FEEF3F1583D44900F99148 /* flag-kernel.png */,
+				D0FEEF401583D44900F99148 /* lax-sample.png */,
+				D0FEEF411583D44900F99148 /* plane-kernel.png */,
+				D0FEEF421583D44900F99148 /* shuttle-sample.png */,
 			);
 			name = "Example Images";
 			path = FastImageCorrelation;
@@ -148,11 +128,11 @@
 		D04A3726153B7E14005621CF = {
 			isa = PBXGroup;
 			children = (
-				D04A3769153B7FD7005621CF /* NOImageCorrelate */,
+				D04A3769153B7FD7005621CF /* LAFeatureDetection */,
 				D00AA3AA1541D7AF006586B3 /* Example Images */,
-				D04A373B153B7E14005621CF /* FastImageCorrelation */,
-				D0ABE80F1579AF1400A84A96 /* iOSFastImageCorrelation */,
-				D04A3758153B7E14005621CF /* FastImageCorrelationTests */,
+				D04A373B153B7E14005621CF /* FeatureDetection */,
+				D0ABE80F1579AF1400A84A96 /* iOSFeatureDetection */,
+				D04A3758153B7E14005621CF /* FeatureDetectionTests */,
 				D04A3734153B7E14005621CF /* Frameworks */,
 				D04A3732153B7E14005621CF /* Products */,
 			);
@@ -161,9 +141,9 @@
 		D04A3732153B7E14005621CF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D04A3731153B7E14005621CF /* FastImageCorrelation.app */,
-				D04A3752153B7E14005621CF /* FastImageCorrelationTests.octest */,
-				D0ABE8071579AF1400A84A96 /* iOSFastImageCorrelation.app */,
+				D04A3731153B7E14005621CF /* FeatureDetection.app */,
+				D04A3752153B7E14005621CF /* FeatureDetectionTests.octest */,
+				D0ABE8071579AF1400A84A96 /* iOSFeatureDetection.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,7 +172,7 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		D04A373B153B7E14005621CF /* FastImageCorrelation */ = {
+		D04A373B153B7E14005621CF /* FeatureDetection */ = {
 			isa = PBXGroup;
 			children = (
 				D04A3747153B7E14005621CF /* AppDelegate.h */,
@@ -200,69 +180,69 @@
 				D04A374A153B7E14005621CF /* MainMenu.xib */,
 				D04A373C153B7E14005621CF /* Supporting Files */,
 			);
-			path = FastImageCorrelation;
+			path = FeatureDetection;
 			sourceTree = "<group>";
 		};
 		D04A373C153B7E14005621CF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D04A373D153B7E14005621CF /* FastImageCorrelation-Info.plist */,
+				D04A373D153B7E14005621CF /* FeatureDetection-Info.plist */,
 				D04A373E153B7E14005621CF /* InfoPlist.strings */,
 				D04A3741153B7E14005621CF /* main.m */,
-				D04A3743153B7E14005621CF /* FastImageCorrelation-Prefix.pch */,
-				D04A3744153B7E14005621CF /* Credits.rtf */,
+				D04A3743153B7E14005621CF /* FeatureDetection-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D04A3758153B7E14005621CF /* FastImageCorrelationTests */ = {
+		D04A3758153B7E14005621CF /* FeatureDetectionTests */ = {
 			isa = PBXGroup;
 			children = (
-				D04A375E153B7E14005621CF /* FastImageCorrelationTests.h */,
-				D04A375F153B7E14005621CF /* FastImageCorrelationTests.m */,
+				D04A375E153B7E14005621CF /* FeatureDetectionTests.h */,
+				D04A375F153B7E14005621CF /* FeatureDetectionTests.m */,
 				D04A3759153B7E14005621CF /* Supporting Files */,
 			);
+			name = FeatureDetectionTests;
 			path = FastImageCorrelationTests;
 			sourceTree = "<group>";
 		};
 		D04A3759153B7E14005621CF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D04A375A153B7E14005621CF /* FastImageCorrelationTests-Info.plist */,
+				D04A375A153B7E14005621CF /* FeatureDetectionTests-Info.plist */,
 				D04A375B153B7E14005621CF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D04A3769153B7FD7005621CF /* NOImageCorrelate */ = {
+		D04A3769153B7FD7005621CF /* LAFeatureDetection */ = {
 			isa = PBXGroup;
 			children = (
-				D04A376A153B7FF2005621CF /* NOImageCorrelate.h */,
-				D04A376B153B7FF2005621CF /* NOImageCorrelate.m */,
+				D04A376A153B7FF2005621CF /* LAFeatureDetection.h */,
+				D04A376B153B7FF2005621CF /* LAFeatureDetection.m */,
 				D0090940157DB656004981B8 /* CGImageToBitmap.h */,
 				D0090941157DB656004981B8 /* CGImageToBitmap.m */,
 			);
-			name = NOImageCorrelate;
+			name = LAFeatureDetection;
 			path = FastImageCorrelation;
 			sourceTree = "<group>";
 		};
-		D0ABE80F1579AF1400A84A96 /* iOSFastImageCorrelation */ = {
+		D0ABE80F1579AF1400A84A96 /* iOSFeatureDetection */ = {
 			isa = PBXGroup;
 			children = (
 				D0ABE8181579AF1400A84A96 /* AppDelegate.h */,
 				D0ABE8191579AF1400A84A96 /* AppDelegate.m */,
 				D0ABE8101579AF1400A84A96 /* Supporting Files */,
 			);
-			path = iOSFastImageCorrelation;
+			path = iOSFeatureDetection;
 			sourceTree = "<group>";
 		};
 		D0ABE8101579AF1400A84A96 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D0ABE8111579AF1400A84A96 /* iOSFastImageCorrelation-Info.plist */,
+				D0ABE8111579AF1400A84A96 /* iOSFeatureDetection-Info.plist */,
 				D0ABE8121579AF1400A84A96 /* InfoPlist.strings */,
 				D0ABE8151579AF1400A84A96 /* main.m */,
-				D0ABE8171579AF1400A84A96 /* iOSFastImageCorrelation-Prefix.pch */,
+				D0ABE8171579AF1400A84A96 /* iOSFeatureDetection-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -270,9 +250,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D04A3730153B7E14005621CF /* FastImageCorrelation */ = {
+		D04A3730153B7E14005621CF /* FeatureDetection */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D04A3763153B7E14005621CF /* Build configuration list for PBXNativeTarget "FastImageCorrelation" */;
+			buildConfigurationList = D04A3763153B7E14005621CF /* Build configuration list for PBXNativeTarget "FeatureDetection" */;
 			buildPhases = (
 				D04A372D153B7E14005621CF /* Sources */,
 				D04A372E153B7E14005621CF /* Frameworks */,
@@ -282,14 +262,14 @@
 			);
 			dependencies = (
 			);
-			name = FastImageCorrelation;
+			name = FeatureDetection;
 			productName = FastImageCorrelation;
-			productReference = D04A3731153B7E14005621CF /* FastImageCorrelation.app */;
+			productReference = D04A3731153B7E14005621CF /* FeatureDetection.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D04A3751153B7E14005621CF /* FastImageCorrelationTests */ = {
+		D04A3751153B7E14005621CF /* FeatureDetectionTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D04A3766153B7E14005621CF /* Build configuration list for PBXNativeTarget "FastImageCorrelationTests" */;
+			buildConfigurationList = D04A3766153B7E14005621CF /* Build configuration list for PBXNativeTarget "FeatureDetectionTests" */;
 			buildPhases = (
 				D04A374D153B7E14005621CF /* Sources */,
 				D04A374E153B7E14005621CF /* Frameworks */,
@@ -301,14 +281,14 @@
 			dependencies = (
 				D04A3757153B7E14005621CF /* PBXTargetDependency */,
 			);
-			name = FastImageCorrelationTests;
+			name = FeatureDetectionTests;
 			productName = FastImageCorrelationTests;
-			productReference = D04A3752153B7E14005621CF /* FastImageCorrelationTests.octest */;
+			productReference = D04A3752153B7E14005621CF /* FeatureDetectionTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
-		D0ABE8061579AF1400A84A96 /* iOSFastImageCorrelation */ = {
+		D0ABE8061579AF1400A84A96 /* iOSFeatureDetection */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D0ABE81B1579AF1400A84A96 /* Build configuration list for PBXNativeTarget "iOSFastImageCorrelation" */;
+			buildConfigurationList = D0ABE81B1579AF1400A84A96 /* Build configuration list for PBXNativeTarget "iOSFeatureDetection" */;
 			buildPhases = (
 				D0ABE8031579AF1400A84A96 /* Sources */,
 				D0ABE8041579AF1400A84A96 /* Frameworks */,
@@ -318,9 +298,9 @@
 			);
 			dependencies = (
 			);
-			name = iOSFastImageCorrelation;
+			name = iOSFeatureDetection;
 			productName = iOSFastImageCorrelation;
-			productReference = D0ABE8071579AF1400A84A96 /* iOSFastImageCorrelation.app */;
+			productReference = D0ABE8071579AF1400A84A96 /* iOSFeatureDetection.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -331,7 +311,7 @@
 			attributes = {
 				LastUpgradeCheck = 0430;
 			};
-			buildConfigurationList = D04A372B153B7E14005621CF /* Build configuration list for PBXProject "FastImageCorrelation" */;
+			buildConfigurationList = D04A372B153B7E14005621CF /* Build configuration list for PBXProject "FeatureDetection" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -343,9 +323,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D04A3730153B7E14005621CF /* FastImageCorrelation */,
-				D04A3751153B7E14005621CF /* FastImageCorrelationTests */,
-				D0ABE8061579AF1400A84A96 /* iOSFastImageCorrelation */,
+				D04A3730153B7E14005621CF /* FeatureDetection */,
+				D04A3751153B7E14005621CF /* FeatureDetectionTests */,
+				D0ABE8061579AF1400A84A96 /* iOSFeatureDetection */,
 			);
 		};
 /* End PBXProject section */
@@ -356,18 +336,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D04A3740153B7E14005621CF /* InfoPlist.strings in Resources */,
-				D04A3746153B7E14005621CF /* Credits.rtf in Resources */,
 				D04A374C153B7E14005621CF /* MainMenu.xib in Resources */,
-				D02A1B1E155AE55F0067350F /* alcatraz-kernel.png in Resources */,
-				D02A1B1F155AE55F0067350F /* candlestick-kernel.png in Resources */,
-				D02A1B20155AE55F0067350F /* palace-kernel.png in Resources */,
-				D02A1B21155AE55F0067350F /* sf-sample.jpg in Resources */,
-				D02A1B22155AE55F0067350F /* sf-sample.png in Resources */,
-				D02A1B23155AE55F0067350F /* ship-kernel.png in Resources */,
-				D0ABE8001576F52A00A84A96 /* lax-sample.png in Resources */,
-				D0ABE8011576F52A00A84A96 /* plane-kernel.png in Resources */,
-				D0ABE831157AF98D00A84A96 /* shuttle-sample.png in Resources */,
-				D00ADC1A1580390C00464336 /* flag-kernel.png in Resources */,
+				D0FEEF451583D44900F99148 /* flag-kernel.png in Resources */,
+				D0FEEF461583D44900F99148 /* lax-sample.png in Resources */,
+				D0FEEF471583D44900F99148 /* plane-kernel.png in Resources */,
+				D0FEEF481583D44900F99148 /* shuttle-sample.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +385,7 @@
 			files = (
 				D04A3742153B7E14005621CF /* main.m in Sources */,
 				D04A3749153B7E14005621CF /* AppDelegate.m in Sources */,
-				D04A376C153B7FF2005621CF /* NOImageCorrelate.m in Sources */,
+				D04A376C153B7FF2005621CF /* LAFeatureDetection.m in Sources */,
 				D0090942157DB656004981B8 /* CGImageToBitmap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,7 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D04A3760153B7E14005621CF /* FastImageCorrelationTests.m in Sources */,
+				D04A3760153B7E14005621CF /* FeatureDetectionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,7 +412,7 @@
 /* Begin PBXTargetDependency section */
 		D04A3757153B7E14005621CF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D04A3730153B7E14005621CF /* FastImageCorrelation */;
+			target = D04A3730153B7E14005621CF /* FeatureDetection */;
 			targetProxy = D04A3756153B7E14005621CF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -451,14 +424,6 @@
 				D04A373F153B7E14005621CF /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		D04A3744153B7E14005621CF /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D04A3745153B7E14005621CF /* en */,
-			);
-			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
 		D04A374A153B7E14005621CF /* MainMenu.xib */ = {
@@ -539,9 +504,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FastImageCorrelation/FastImageCorrelation-Prefix.pch";
-				INFOPLIST_FILE = "FastImageCorrelation/FastImageCorrelation-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "FeatureDetection/FeatureDetection-Prefix.pch";
+				INFOPLIST_FILE = "FeatureDetection/FeatureDetection-Info.plist";
+				PRODUCT_NAME = FeatureDetection;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -550,9 +515,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FastImageCorrelation/FastImageCorrelation-Prefix.pch";
-				INFOPLIST_FILE = "FastImageCorrelation/FastImageCorrelation-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "FeatureDetection/FeatureDetection-Prefix.pch";
+				INFOPLIST_FILE = "FeatureDetection/FeatureDetection-Info.plist";
+				PRODUCT_NAME = FeatureDetection;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -560,12 +525,12 @@
 		D04A3767153B7E14005621CF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FastImageCorrelation.app/Contents/MacOS/FastImageCorrelation";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FeatureDetection.app/Contents/MacOS/FeatureDetection";
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FastImageCorrelation/FastImageCorrelation-Prefix.pch";
-				INFOPLIST_FILE = "FastImageCorrelationTests/FastImageCorrelationTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "FastImageCorrelationTests/FeatureDetectionTests-Info.plist";
+				PRODUCT_NAME = FeatureDetectionTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -574,12 +539,12 @@
 		D04A3768153B7E14005621CF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FastImageCorrelation.app/Contents/MacOS/FastImageCorrelation";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FeatureDetection/Contents/MacOS/FeatureDetection";
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FastImageCorrelation/FastImageCorrelation-Prefix.pch";
-				INFOPLIST_FILE = "FastImageCorrelationTests/FastImageCorrelationTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "FastImageCorrelationTests/FeatureDetectionTests-Info.plist";
+				PRODUCT_NAME = FeatureDetectionTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -595,10 +560,10 @@
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iOSFastImageCorrelation/iOSFastImageCorrelation-Prefix.pch";
-				INFOPLIST_FILE = "iOSFastImageCorrelation/iOSFastImageCorrelation-Info.plist";
+				GCC_PREFIX_HEADER = "iOSFeatureDetection/iOSFeatureDetection-Prefix.pch";
+				INFOPLIST_FILE = "iOSFastImageCorrelation/iOSFeatureDetection-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iOSFeatureDetection;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -615,11 +580,11 @@
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iOSFastImageCorrelation/iOSFastImageCorrelation-Prefix.pch";
-				INFOPLIST_FILE = "iOSFastImageCorrelation/iOSFastImageCorrelation-Info.plist";
+				GCC_PREFIX_HEADER = "iOSFeatureDetection/iOSFeatureDetection-Prefix.pch";
+				INFOPLIST_FILE = "iOSFastImageCorrelation/iOSFeatureDetection-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iOSFeatureDetection;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -630,7 +595,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D04A372B153B7E14005621CF /* Build configuration list for PBXProject "FastImageCorrelation" */ = {
+		D04A372B153B7E14005621CF /* Build configuration list for PBXProject "FeatureDetection" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D04A3761153B7E14005621CF /* Debug */,
@@ -639,7 +604,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D04A3763153B7E14005621CF /* Build configuration list for PBXNativeTarget "FastImageCorrelation" */ = {
+		D04A3763153B7E14005621CF /* Build configuration list for PBXNativeTarget "FeatureDetection" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D04A3764153B7E14005621CF /* Debug */,
@@ -648,7 +613,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D04A3766153B7E14005621CF /* Build configuration list for PBXNativeTarget "FastImageCorrelationTests" */ = {
+		D04A3766153B7E14005621CF /* Build configuration list for PBXNativeTarget "FeatureDetectionTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D04A3767153B7E14005621CF /* Debug */,
@@ -657,7 +622,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D0ABE81B1579AF1400A84A96 /* Build configuration list for PBXNativeTarget "iOSFastImageCorrelation" */ = {
+		D0ABE81B1579AF1400A84A96 /* Build configuration list for PBXNativeTarget "iOSFeatureDetection" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D0ABE81C1579AF1400A84A96 /* Debug */,

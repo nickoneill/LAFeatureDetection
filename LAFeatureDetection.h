@@ -1,6 +1,5 @@
 //
-//  NOImageCorrelate.h
-//  FastImageCorrelation
+//  LAFeatureDetection.h
 //
 //  Created by Nick O'Neill on 4/15/12.
 //  Copyright (c) 2012 Launch Apps. All rights reserved.
@@ -8,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NOImageCorrelate : NSObject
+@interface LAFeatureDetection : NSObject
 
 @property (nonatomic, weak) id delegate;
 // tweak this value if you're getting too many points back

@@ -1,15 +1,14 @@
 //
 //  AppDelegate.m
-//  FastImageCorrelation
+//  FeatureDetection
 //
 //  Created by Nick O'Neill on 4/15/12.
 //  Copyright (c) 2012 Launch Apps. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "NOImageCorrelate.h"
+#import "LAFeatureDetection.h"
 #import "CGImageToBitmap.h"
-#import <Accelerate/Accelerate.h>
 
 @implementation AppDelegate
 
@@ -18,8 +17,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    NSImage *sample = [[NSImage alloc] initByReferencingFile:[[NSBundle mainBundle] pathForResource:@"shuttle-sample" ofType:@"png"]];
-    NSImage *kernel = [[NSImage alloc] initByReferencingFile:[[NSBundle mainBundle] pathForResource:@"flag-kernel" ofType:@"png"]];
+    NSImage *sample = [[NSImage alloc] initByReferencingFile:[[NSBundle mainBundle] pathForResource:@"lax-sample" ofType:@"png"]];
+    NSImage *kernel = [[NSImage alloc] initByReferencingFile:[[NSBundle mainBundle] pathForResource:@"plane-kernel" ofType:@"png"]];
     
     CGImageSourceRef samplesource = CGImageSourceCreateWithData((__bridge CFDataRef)[sample TIFFRepresentation], nil);
     CGImageRef sampleref = CGImageSourceCreateImageAtIndex(samplesource, 0, nil);    
@@ -27,7 +26,7 @@
     CGImageSourceRef kernelsource = CGImageSourceCreateWithData((__bridge CFDataRef)[kernel TIFFRepresentation], nil);
     CGImageRef kernelref = CGImageSourceCreateImageAtIndex(kernelsource, 0, nil);
     
-    NSArray *points = [[[NOImageCorrelate alloc] init] probablePointsForImage:kernelref inImage:sampleref];
+    NSArray *points = [[[LAFeatureDetection alloc] init] probablePointsForImage:kernelref inImage:sampleref];
         
     if (points != nil) {
         NSBitmapImageRep *sampleRep = [NSBitmapImageRep imageRepWithData:[sample TIFFRepresentation]];

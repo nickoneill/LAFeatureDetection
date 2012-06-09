@@ -1,18 +1,17 @@
 //
-//  NOImageCorrelate.m
-//  FastImageCorrelation
+//  LAFeatureDetection.m
 //
 //  Created by Nick O'Neill on 4/15/12.
 //  Copyright (c) 2012 Launch Apps. All rights reserved.
 //
 
-#import "NOImageCorrelate.h"
+#import "LAFeatureDetection.h"
 #import "CGImageToBitmap.h"
 #import "AppDelegate.h"
 
 #include <Accelerate/Accelerate.h>
 
-@implementation NOImageCorrelate
+@implementation LAFeatureDetection
 
 @synthesize delegate;
 
@@ -29,9 +28,9 @@
 
 + (NSArray*)probablePointsForImage:(CGImageRef)kernel inImage:(CGImageRef)sample
 {
-    NOImageCorrelate *correlate = [[NOImageCorrelate alloc] init];
+    LAFeatureDetection *detector = [[LAFeatureDetection alloc] init];
     
-    return [correlate probablePointsForImage:kernel inImage:sample];
+    return [detector probablePointsForImage:kernel inImage:sample];
 }
 
 - (NSArray*)probablePointsForImage:(CGImageRef)kernel inImage:(CGImageRef)sample
