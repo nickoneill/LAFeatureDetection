@@ -14,7 +14,7 @@
 // tweak this value if you're getting too many points back
 @property (nonatomic) float relatedPointThreshold;
 
-+ (NSArray*)probablePointsForImage:(NSImage *)kernel inImage:(NSImage *)sample;
-- (NSArray*)probablePointsForImage:(NSImage *)kernel inImage:(NSImage *)sample;
++ (NSArray*)probablePointsForImage:(CGImageRef)kernel inImage:(CGImageRef)sample;
+- (NSArray*)probablePointsForImage:(CGImageRef)kernel inImage:(CGImageRef)sample;
 
 @end

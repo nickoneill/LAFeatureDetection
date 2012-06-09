@@ -1,4 +1,4 @@
-**Notes:** The project only supports OSX at the moment, an iOS build target is in the works.
+**Notes: The project only builds on OSX at the moment, an iOS build target is in the works.**
 
 This library is designed to use the accelerated vDSP functions for OSX/iOS to perform image correlation by convolution. In short, it allows you to find the location of subimages (or like forms) within a larger sample image without iterating through every pixel in the image. This approach is particularly useful for large sample images, but because of the speed of the Accelerate framework it is applicable to much smaller sizes as well.
 
@@ -20,10 +20,12 @@ The goal of this library is to allow anyone with basic Objective-C knowledge to 
 
 Most users will probably be satisfied by using the default class method `probablePointsForImage:(NSImage *)kernel inImage:(NSImage *)sample` which makes some assumptions and returns an array of the most likely locations of the kernel image in the sample (likeliest first). The points returned are the likely location of the bottom right corner of the kernel.
 
-(There are some optimizations for faster execution or specific use cases that could be customized for but so far we're aiming for simplicity)
+### Contributions ###
+
+I'm open to suggestions or pull requests. Or you can just track progress on [Trello](https://trello.com/board/image-fft-correlation/4f74e20243c8990d7528b36a).
 
 ### Credits ###
 
-Many thanks to the Apple Scitech list for answering all sorts of implementation questions, and Thijs Hosman for turning me onto this topic in the first place.
+Many thanks to the Apple Scitech list for answering all sorts of implementation questions, and Thijs Hosman for introducing me to the concept.
 
 Test images procured from the [USC Signal and Image Processing database](http://sipi.usc.edu/database/database.php).

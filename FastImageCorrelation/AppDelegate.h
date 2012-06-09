@@ -14,4 +14,6 @@
 @property (assign) IBOutlet NSView *view;
 @property (assign) IBOutlet NSScrollView *scrollContent;
 
+- (void)showImage:(float*)imageArray forWidth:(int)width andHeight:(int)height;
+
 @end

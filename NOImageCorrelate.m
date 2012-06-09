@@ -7,6 +7,7 @@
 //
 
 #import "NOImageCorrelate.h"
+#import "CGImageToBitmap.h"
 #import "AppDelegate.h"
 
 #include <Accelerate/Accelerate.h>
@@ -17,14 +18,6 @@
 
 @synthesize relatedPointThreshold;
 
-typedef struct {
-	unsigned char redByte, greenByte, blueByte, alphaByte;
-} RGBAPixel;
-
-typedef struct {
-	unsigned char redByte, greenByte, blueByte;
-} RGBPixel;
-
 - (id)init
 {
     if (self = [super init]) {
@@ -34,53 +27,75 @@ typedef struct {
     return self;
 }
 
-+ (NSArray*)probablePointsForImage:(NSImage *)kernel inImage:(NSImage *)sample
++ (NSArray*)probablePointsForImage:(CGImageRef)kernel inImage:(CGImageRef)sample
 {
     NOImageCorrelate *correlate = [[NOImageCorrelate alloc] init];
     
     return [correlate probablePointsForImage:kernel inImage:sample];
 }
 
-- (NSArray*)probablePointsForImage:(NSImage *)kernel inImage:(NSImage *)sample
+- (NSArray*)probablePointsForImage:(CGImageRef)kernel inImage:(CGImageRef)sample
 {
+    unsigned char *samplebitmap = [CGImageToBitmap bitmapARGB8888FromCGImage:sample];
+    
+    int sampleWidth  = CGImageGetWidth(sample);
+    int sampleHeight = CGImageGetHeight(sample);
+    
+    // temp data for edge detection
+    float *tempSample = malloc(sampleWidth*sampleHeight * sizeof(float));
+    
+    // transfer bitmap in ARGB8888 to planar grayscale
+    for (int i = 0; i < sampleHeight; i++) {
+        for (int j = 0; j < sampleWidth; j++) {
+            int idx = ((sampleWidth*i)+j)*4;
+            unsigned char gray;
+            
+            gray = (float)(samplebitmap[idx+1]*0.2989 + samplebitmap[idx+2]*0.5870 + samplebitmap[idx+3]*0.1140);
+            
+            tempSample[(sampleWidth*i)+j] = (float)gray;
+        }
+    }
+    
+    tempSample = [self applySobel:tempSample forWidth:sampleWidth andHeight:sampleHeight];
+    
+//    [delegate showImage:tempSample forWidth:sampleWidth andHeight:sampleHeight];
+            
+    unsigned char *kernelbitmap = [CGImageToBitmap bitmapARGB8888FromCGImage:kernel];
+    
+    int kernelWidth = CGImageGetWidth(kernel);
+    int kernelHeight = CGImageGetHeight(kernel);
+    
+    // temp data for edge detection
+    float *tempKernel = malloc((kernelWidth*kernelHeight) * sizeof(float));
+    
+    // transfer bitmap in ARGB8888 to planar grayscale
+    for (int i = 0; i < kernelHeight; i++) {
+        for (int j = 0; j < kernelWidth; j++) {
+            // inverting i and j for the kernel as a quick way to rotate 180
+            int idx = ((kernelWidth*(kernelHeight-i))+(kernelWidth-j))*4;
+            unsigned char gray; 
+                
+            gray = (kernelbitmap[idx+1]*0.2989 + kernelbitmap[idx+2]*0.5870 + kernelbitmap[idx+3]*0.1140);
+                
+            tempKernel[(kernelWidth*i)+j] = (float)gray;
+        }
+    }
+
+    tempKernel = [self applySobel:tempKernel forWidth:kernelWidth andHeight:kernelHeight];
+
+//    [delegate showImage:tempKernel forWidth:kernelWidth andHeight:kernelHeight];
+        
+    // build necessary things for fft
     COMPLEX_SPLIT   sampleComplex,kernelComplex,resultComplex;
     FFTSetup        setupReal;
     uint32_t        log2n;
     uint32_t        n,nOver2,nnOver2;
     float           *sampleArray,*kernelArray,*resultArray;
     float           scale;
-        
-    NSBitmapImageRep *sampleRep = [NSBitmapImageRep imageRepWithData:[sample TIFFRepresentation]];
-    NSBitmapImageRep *kernelRep = [NSBitmapImageRep imageRepWithData:[kernel TIFFRepresentation]];
-    
-    // grab image info so we can get pixel values properly
-    CGImageAlphaInfo sampleInfo = CGImageGetAlphaInfo([sampleRep CGImage]);
-    BOOL sampleHasAlpha = ((sampleInfo == kCGImageAlphaPremultipliedLast) || 
-                           (sampleInfo == kCGImageAlphaLast) ? YES : NO);
-    CGImageAlphaInfo kernelInfo = CGImageGetAlphaInfo([kernelRep CGImage]);
-    BOOL kernelHasAlpha = ((kernelInfo == kCGImageAlphaPremultipliedLast) || 
-                           (kernelInfo == kCGImageAlphaLast) ? YES : NO);
-
-    RGBAPixel *sampleAlphaPixels;
-    RGBPixel  *samplePixels;
-    RGBAPixel *kernelAlphaPixels;
-    RGBPixel  *kernelPixels;
-        
-    if (sampleHasAlpha) {
-        sampleAlphaPixels = (RGBAPixel *)[sampleRep bitmapData];
-    } else {
-        samplePixels = (RGBPixel *)[sampleRep bitmapData];
-    }
-    
-    if (kernelHasAlpha) {
-        kernelAlphaPixels = (RGBAPixel *)[kernelRep bitmapData];
-    } else {
-        kernelPixels = (RGBPixel *)[kernelRep bitmapData];
-    }
-        
-    NSLog(@"sample size is: %ldx%ld",[sampleRep pixelsWide],[sampleRep pixelsHigh]);
-    NSLog(@"kernel size is: %ldx%ld",[kernelRep pixelsWide],[kernelRep pixelsHigh]);
-    int max_dimension = MAX(MAX(MAX([sampleRep pixelsHigh], [sampleRep pixelsWide]), [kernelRep pixelsHigh]), [kernelRep pixelsWide]);
+                
+    NSLog(@"sample size is: %dx%d",sampleWidth,sampleHeight);
+    NSLog(@"kernel size is: %dx%d",kernelWidth,kernelHeight);
+    int max_dimension = MAX(MAX(MAX(sampleHeight, sampleWidth), kernelHeight), kernelWidth);
     NSLog(@"max dimension is: %d",max_dimension);
     
     // Check for images that are tiny or big (more big sizes should be easily supported)
@@ -116,8 +131,6 @@ typedef struct {
     nOver2 = n / 2;
     nnOver2 = (n*n) / 2;
     
-    NSLog(@"adjusted dimension to %d per side",n);
-    
     // allocate memory
     sampleComplex.realp = (float *) malloc(nnOver2 * sizeof(float));
     sampleComplex.imagp = (float *) malloc(nnOver2 * sizeof(float));
@@ -125,71 +138,42 @@ typedef struct {
     kernelComplex.imagp = (float *) malloc(nnOver2 * sizeof(float));
     resultComplex.realp = (float *) malloc(nnOver2 * sizeof(float));
     resultComplex.imagp = (float *) malloc(nnOver2 * sizeof(float));
-
+    
     sampleArray = (float *)malloc((n*n) * sizeof(float));
     kernelArray = (float *)malloc((n*n) * sizeof(float));
     resultArray = (float *)malloc((n*n) * sizeof(float));
         
-    // transfer pixels to grayscale array
-    // zero all pixels that are outside of data
+    // expand images to power of two size, zero all pixels that are outside of data
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            if (i < [sampleRep pixelsHigh] && j < [sampleRep pixelsWide]) {
-                RGBAPixel *sampleAlphaPixel;
-                RGBPixel *samplePixel;
-                unsigned char gray;
-                
-                if (sampleHasAlpha) {
-                    sampleAlphaPixel = (RGBAPixel *)&sampleAlphaPixels[([sampleRep pixelsWide]*i)+j];
-                    gray = ((sampleAlphaPixel->redByte*0.2989) + (sampleAlphaPixel->greenByte*0.5870) + (sampleAlphaPixel->blueByte*0.1140));
-                } else {
-                    samplePixel = (RGBPixel *)&samplePixels[([sampleRep pixelsWide]*i)+j];
-                    gray = ((samplePixel->redByte*0.2989) + (samplePixel->greenByte*0.5870) + (samplePixel->blueByte*0.1140));
-                }
-                
-                sampleArray[(n*i)+j] = (float)gray;
+            if (i < sampleHeight && j < sampleWidth) {
+                sampleArray[(n*i)+j] = tempSample[(sampleWidth*i)+j];
             } else {
-                
                 sampleArray[(n*i)+j] = 0.0;
             }
             
-            if (i < [kernelRep pixelsHigh] && j < [kernelRep pixelsWide]) {
-                RGBAPixel *kernelAlphaPixel;
-                RGBPixel *kernelPixel;
-                unsigned char gray;
-                
-                // i and j are inverted here to produce a 180 degree rotation
-                if (kernelHasAlpha) {
-                    kernelAlphaPixel = (RGBAPixel *)&kernelAlphaPixels[([kernelRep pixelsWide]*([kernelRep pixelsHigh]-i))+([kernelRep pixelsWide]-j)];
-                    gray = ((kernelAlphaPixel->redByte*0.2989) + (kernelAlphaPixel->greenByte*0.5870) + (kernelAlphaPixel->blueByte*0.1140));
-                } else {
-                    kernelPixel = (RGBPixel *)&kernelPixels[([kernelRep pixelsWide]*([kernelRep pixelsHigh]-i))+([kernelRep pixelsWide]-j)];
-                    gray = ((kernelPixel->redByte*0.2989) + (kernelPixel->greenByte*0.5870) + (kernelPixel->blueByte*0.1140));
-                }
-                
-                kernelArray[(n*i)+j] = (float)gray;
+            if (i < kernelHeight && j < kernelWidth) {
+                kernelArray[(n*i)+j] = tempKernel[(kernelWidth*i)+j];
             } else {
-
                 kernelArray[(n*i)+j] = 0.0;
             }
         }
     }
     
-    // apply sobel filter to each, increasing the liklihood of matching
-    kernelArray = [self applySobel:kernelArray forN:n];
-    sampleArray = [self applySobel:sampleArray forN:n];
+    free(tempSample);
+    free(tempKernel);
         
     // transfer pixel arrays to split complex format
     vDSP_ctoz((COMPLEX *)sampleArray, 2, &sampleComplex, 1, nnOver2);
     vDSP_ctoz((COMPLEX *)kernelArray, 2, &kernelComplex, 1, nnOver2);
-
+    
     // create special fftsetup for our particular size
     setupReal = vDSP_create_fftsetup(log2n, kFFTRadix2);
-
+    
     // run 2d accelerated fft on both complex arrays
     vDSP_fft2d_zrip(setupReal, &sampleComplex, 1, 0, log2n, log2n, kFFTDirection_Forward);
     vDSP_fft2d_zrip(setupReal, &kernelComplex, 1, 0, log2n, log2n, kFFTDirection_Forward);
-
+    
     // tricky part: once the complex split value has been run through fft, it's in a very particular format
     // which is defined here: http://bit.ly/JHnC0q
     // for our multiplication to work properly, we have to multiply the real and imaginary parts of the
@@ -197,7 +181,7 @@ typedef struct {
     
     // first, multiply everything which works for most of the data
     vDSP_zvmul(&sampleComplex, 1, &kernelComplex, 1, &resultComplex, 1, (n/2)*(n/2), 1);
-
+    
     // move the real column to new split complex arrays for fast multiplication
     DSPSplitComplex sampleRealColumn;
     sampleRealColumn.realp = (float *) malloc(((nOver2-2)/2) * sizeof(float));
@@ -208,7 +192,7 @@ typedef struct {
     DSPSplitComplex resultRealColumn;
     resultRealColumn.realp = (float *) malloc(((nOver2-2)/2) * sizeof(float));
     resultRealColumn.imagp = (float *) malloc(((nOver2-2)/2) * sizeof(float));
-
+    
     for (int i=0; i < ((nOver2-2)/2); i++) {
         int j = (i*2)+2;
         
@@ -220,7 +204,7 @@ typedef struct {
     }
     
     vDSP_zvmul(&sampleRealColumn, 1, &kernelRealColumn, 1, &resultRealColumn, 1, ((nOver2-2)/2), 1);
-
+    
     for (int i=0; i < ((nOver2-2)/2); i++) {
         int j = (i*2)+2;
         
@@ -257,16 +241,16 @@ typedef struct {
         resultComplex.imagp[nOver2*j] = resultImagColumn.realp[i];
         resultComplex.imagp[nOver2*(j+1)] = resultImagColumn.imagp[i];
     }
-
+    
     // multiply our four real elements normally
     resultComplex.realp[0] = sampleComplex.realp[0] * kernelComplex.realp[0];
     resultComplex.imagp[0] = sampleComplex.imagp[0] * kernelComplex.imagp[0];
     resultComplex.realp[(n/2)] = sampleComplex.realp[(n/2)] * kernelComplex.realp[(n/2)];
     resultComplex.imagp[(n/2)] = sampleComplex.imagp[(n/2)] * kernelComplex.imagp[(n/2)];
-
+    
     // invert the fft on our result
     vDSP_fft2d_zrip(setupReal, &resultComplex, 1, 0, log2n, log2n, kFFTDirection_Inverse);
-
+    
     // vdsp scales values when computing fft and inverse fft, we need to unscale them
     scale = (float) 1.0 / (n * n * n);
     vDSP_vsmul(resultComplex.realp, 1, &scale, resultComplex.realp, 1, nnOver2);
@@ -274,7 +258,7 @@ typedef struct {
     
     // move out of split complex format into a regular array
     vDSP_ztoc(&resultComplex, 1, (COMPLEX *)resultArray, 2, nnOver2);
-    
+        
     // determine max value location
     NSMutableArray *points = [NSMutableArray array];
     float max,min = 0;
@@ -295,10 +279,17 @@ typedef struct {
         if (resultArray[i] >= limit) {
             int row = floor(i/n);
             int col = i-(row*n);
-
+            
             [points addObject:[NSValue valueWithPoint:CGPointMake(col, row)]];
         }
     }
+    
+    // for debugging the result
+//    int diff = max-min;
+//    for (int i = 0; i < n*n; i++) {
+//        resultArray[i] = ((resultArray[i]-min)/diff)*255;
+//    }
+//    [delegate showImage:resultArray];
     
     // free malloc'd memory
     vDSP_destroy_fftsetup(setupReal);
@@ -327,48 +318,51 @@ typedef struct {
     return points;
 }
 
-- (float*)applySobel:(float*)imageArray forN:(int)n
+- (float*)applySobel:(float*)imageArray forWidth:(int)width andHeight:(int)height
 {
     // sobel is a simple edge detection filter, good for images with some contrast
     float xKernel[9] = {-1, 0, 1, -2, 0, 2, -1, 0, 1};
     float yKernel[9] = {-1, -2, -1, 0, 0, 0, 1, 2, 1};
+
+    // background estimation by averaging values at midpoints for each edge
+    Pixel_F bgColor = (imageArray[width*(height/2)]+imageArray[(width*(height/2))-1]+imageArray[width/2]+imageArray[(width*height)-(width/2)])/4;
     
-    Pixel_F bgColor = 0;
+//    NSLog(@"bgcolor: %f",bgColor);
     
     vImage_Buffer buf;
     buf.data = imageArray;
-    buf.height = n;
-    buf.width = n;
-    buf.rowBytes = n*sizeof(float);
+    buf.height = height;
+    buf.width = width;
+    buf.rowBytes = width*sizeof(float);
     
     vImage_Buffer xdest;
-    xdest.data = malloc(n*n * sizeof(float));
-    xdest.height = n;
-    xdest.width = n;
-    xdest.rowBytes = n*sizeof(float);
+    xdest.data = malloc(width*height * sizeof(float));
+    xdest.height = height;
+    xdest.width = width;
+    xdest.rowBytes = width*sizeof(float);
     
     vImage_Buffer ydest;
-    ydest.data = malloc(n*n * sizeof(float));
-    ydest.height = n;
-    ydest.width = n;
-    ydest.rowBytes = n*sizeof(float);
+    ydest.data = malloc(width*height * sizeof(float));
+    ydest.height = height;
+    ydest.width = width;
+    ydest.rowBytes = width*sizeof(float);
     
     // convolve with each kernel which estimates the gradient in each direction
     vImageConvolve_PlanarF(&buf, &xdest, nil, 0, 0, xKernel, 3, 3, bgColor, kvImageBackgroundColorFill);
     vImageConvolve_PlanarF(&buf, &ydest, nil, 0, 0, yKernel, 3, 3, bgColor, kvImageBackgroundColorFill);
-
+        
     float *xtemp = xdest.data;
     float *ytemp = ydest.data;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            // calculate combined magnitude of both vertical and horizontal directions
-            imageArray[(n*i)+j] = sqrtf(powf(xtemp[(n*i)+j],2)+powf(ytemp[(n*i)+j],2));
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            // calculatew magnitude of both vertical and horizontal directions
+            imageArray[(width*i)+j] = sqrtf(powf(xtemp[(width*i)+j],2)+powf(ytemp[(width*i)+j],2));
         }
     }
     
     free(xdest.data);
     free(ydest.data);
-
+    
     return imageArray;
 }
 
