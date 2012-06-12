@@ -1,6 +1,8 @@
 This library is designed to use the accelerated vDSP functions for OSX/iOS to perform image correlation by convolution. In short, it allows you to find the location of subimages (or like forms) within a larger sample image without iterating through every pixel in the image. This approach is particularly useful for large sample images, but because of the speed of the Accelerate framework it is applicable to much smaller sizes as well.
 
-[images as examples]
+![Detecting a flag on iOS](https://github.com/nickoneill/LAFeatureDetection/raw/master/iosscreen.png)
+
+![Detecting a plane on OS X](https://github.com/nickoneill/LAFeatureDetection/raw/master/osxscreen.png)
 
 ### Correlation by convolution ###
 
