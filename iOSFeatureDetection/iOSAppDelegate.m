@@ -20,9 +20,9 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    UIImage *sample = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"lax-sample" ofType:@"png"]];
+    UIImage *sample = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"shuttle-sample" ofType:@"png"]];
     
-    UIImage *kernel = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"plane-kernel" ofType:@"png"]];
+    UIImage *kernel = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"flag-kernel" ofType:@"png"]];
     
     NSArray *points = [LAFeatureDetection probablePointsForImage:[kernel CGImage] inImage:[sample CGImage]];
     

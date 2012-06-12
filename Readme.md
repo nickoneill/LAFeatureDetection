@@ -30,4 +30,4 @@ I'm open to suggestions or pull requests. Or you can just track progress on [Tre
 
 Many thanks to the Apple Scitech list for answering all sorts of implementation questions, and Thijs Hosman for introducing me to the concept.
 
-Test images procured from the [USC Signal and Image Processing database](http://sipi.usc.edu/database/database.php).
+Test images procured from the [USC Signal and Image Processing database](http://sipi.usc.edu/database/database.php) and NASA.

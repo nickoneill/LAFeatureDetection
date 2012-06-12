@@ -19,6 +19,8 @@
 		D04A3760153B7E14005621CF /* FeatureDetectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D04A375F153B7E14005621CF /* FeatureDetectionTests.m */; };
 		D04A376C153B7FF2005621CF /* LAFeatureDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = D04A376B153B7FF2005621CF /* LAFeatureDetection.m */; };
 		D05275FC15570BCB00F464CC /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D05275FB15570BCB00F464CC /* Accelerate.framework */; };
+		D09034E91587FB1600F971E0 /* flag-kernel.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FEEF3F1583D44900F99148 /* flag-kernel.png */; };
+		D09034EA1587FB1600F971E0 /* shuttle-sample.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FEEF421583D44900F99148 /* shuttle-sample.png */; };
 		D0A2107B1587CC11002F41F1 /* LAFeatureDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = D04A376B153B7FF2005621CF /* LAFeatureDetection.m */; };
 		D0A2107C1587CCCA002F41F1 /* CGImageToBitmap.m in Sources */ = {isa = PBXBuildFile; fileRef = D0090941157DB656004981B8 /* CGImageToBitmap.m */; };
 		D0A2107E1587CCEA002F41F1 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A2107D1587CCEA002F41F1 /* Accelerate.framework */; };
@@ -360,6 +362,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D09034E91587FB1600F971E0 /* flag-kernel.png in Resources */,
+				D09034EA1587FB1600F971E0 /* shuttle-sample.png in Resources */,
 				D0A210811587CD41002F41F1 /* lax-sample.png in Resources */,
 				D0A210821587CD41002F41F1 /* plane-kernel.png in Resources */,
 				D0ABE8141579AF1400A84A96 /* InfoPlist.strings in Resources */,
