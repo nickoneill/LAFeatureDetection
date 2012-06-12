@@ -7,7 +7,6 @@
 
 #import "LAFeatureDetection.h"
 #import "CGImageToBitmap.h"
-#import "AppDelegate.h"
 
 #include <Accelerate/Accelerate.h>
 
@@ -100,11 +99,11 @@
     // Check for images that are tiny or big (more big sizes should be easily supported)
     if (max_dimension <= 128) {
         NSLog(@"Use iteration for sample images smaller than 128");
-        return [NSArray arrayWithObject:[NSValue valueWithPoint:CGPointMake(0, 0)]];
+        return nil;
     }
     if (max_dimension > 8192) {
         NSLog(@"Large image! Not quite supported yet.");
-        return [NSArray arrayWithObject:[NSValue valueWithPoint:CGPointMake(0, 0)]];
+        return nil;
     }
     
     if (max_dimension > 128 && max_dimension <= 256) {
@@ -279,7 +278,7 @@
             int row = floor(i/n);
             int col = i-(row*n);
             
-            [points addObject:[NSValue valueWithPoint:CGPointMake(col, row)]];
+            [points addObject:[NSValue valueWithCGPoint:CGPointMake(col, row)]];
         }
     }
     

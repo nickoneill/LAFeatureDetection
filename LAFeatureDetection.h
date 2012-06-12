@@ -7,6 +7,10 @@
 
 #import <Foundation/Foundation.h>
 
+#if !(TARGET_IPHONE_SIMULATOR) && !(TARGET_OS_IPHONE)
+#define valueWithCGPoint valueWithPoint
+#endif
+
 @interface LAFeatureDetection : NSObject
 
 @property (nonatomic, weak) id delegate;

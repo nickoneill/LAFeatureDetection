@@ -19,12 +19,16 @@
 		D04A3760153B7E14005621CF /* FeatureDetectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D04A375F153B7E14005621CF /* FeatureDetectionTests.m */; };
 		D04A376C153B7FF2005621CF /* LAFeatureDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = D04A376B153B7FF2005621CF /* LAFeatureDetection.m */; };
 		D05275FC15570BCB00F464CC /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D05275FB15570BCB00F464CC /* Accelerate.framework */; };
-		D0ABE80A1579AF1400A84A96 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0ABE8091579AF1400A84A96 /* UIKit.framework */; };
-		D0ABE80C1579AF1400A84A96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0ABE80B1579AF1400A84A96 /* Foundation.framework */; };
-		D0ABE80E1579AF1400A84A96 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0ABE80D1579AF1400A84A96 /* CoreGraphics.framework */; };
+		D0A2107B1587CC11002F41F1 /* LAFeatureDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = D04A376B153B7FF2005621CF /* LAFeatureDetection.m */; };
+		D0A2107C1587CCCA002F41F1 /* CGImageToBitmap.m in Sources */ = {isa = PBXBuildFile; fileRef = D0090941157DB656004981B8 /* CGImageToBitmap.m */; };
+		D0A2107E1587CCEA002F41F1 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A2107D1587CCEA002F41F1 /* Accelerate.framework */; };
+		D0A210801587CD11002F41F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0A2107F1587CD11002F41F1 /* CoreGraphics.framework */; };
+		D0A210811587CD41002F41F1 /* lax-sample.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FEEF401583D44900F99148 /* lax-sample.png */; };
+		D0A210821587CD41002F41F1 /* plane-kernel.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FEEF411583D44900F99148 /* plane-kernel.png */; };
 		D0ABE8141579AF1400A84A96 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0ABE8121579AF1400A84A96 /* InfoPlist.strings */; };
 		D0ABE8161579AF1400A84A96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ABE8151579AF1400A84A96 /* main.m */; };
-		D0ABE81A1579AF1400A84A96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ABE8191579AF1400A84A96 /* AppDelegate.m */; };
+		D0ABE81A1579AF1400A84A96 /* iOSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ABE8191579AF1400A84A96 /* iOSAppDelegate.m */; };
+		D0C425DD1586929A00DB4EF2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C425DC1586929A00DB4EF2 /* UIKit.framework */; };
 		D0FEEF451583D44900F99148 /* flag-kernel.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FEEF3F1583D44900F99148 /* flag-kernel.png */; };
 		D0FEEF461583D44900F99148 /* lax-sample.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FEEF401583D44900F99148 /* lax-sample.png */; };
 		D0FEEF471583D44900F99148 /* plane-kernel.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FEEF411583D44900F99148 /* plane-kernel.png */; };
@@ -65,16 +69,16 @@
 		D04A376A153B7FF2005621CF /* LAFeatureDetection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAFeatureDetection.h; sourceTree = SOURCE_ROOT; };
 		D04A376B153B7FF2005621CF /* LAFeatureDetection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAFeatureDetection.m; sourceTree = SOURCE_ROOT; };
 		D05275FB15570BCB00F464CC /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		D0A2107D1587CCEA002F41F1 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
+		D0A2107F1587CD11002F41F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		D0ABE8071579AF1400A84A96 /* iOSFeatureDetection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSFeatureDetection.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0ABE8091579AF1400A84A96 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		D0ABE80B1579AF1400A84A96 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D0ABE80D1579AF1400A84A96 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		D0ABE8111579AF1400A84A96 /* iOSFeatureDetection-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOSFeatureDetection-Info.plist"; sourceTree = "<group>"; };
 		D0ABE8131579AF1400A84A96 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D0ABE8151579AF1400A84A96 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D0ABE8171579AF1400A84A96 /* iOSFeatureDetection-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSFeatureDetection-Prefix.pch"; sourceTree = "<group>"; };
-		D0ABE8181579AF1400A84A96 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		D0ABE8191579AF1400A84A96 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D0ABE8181579AF1400A84A96 /* iOSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOSAppDelegate.h; sourceTree = "<group>"; };
+		D0ABE8191579AF1400A84A96 /* iOSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSAppDelegate.m; sourceTree = "<group>"; };
+		D0C425DC1586929A00DB4EF2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		D0FEEF3F1583D44900F99148 /* flag-kernel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flag-kernel.png"; path = "FeatureDetection/Example Images/flag-kernel.png"; sourceTree = SOURCE_ROOT; };
 		D0FEEF401583D44900F99148 /* lax-sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lax-sample.png"; path = "FeatureDetection/Example Images/lax-sample.png"; sourceTree = SOURCE_ROOT; };
 		D0FEEF411583D44900F99148 /* plane-kernel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "plane-kernel.png"; path = "FeatureDetection/Example Images/plane-kernel.png"; sourceTree = SOURCE_ROOT; };
@@ -104,9 +108,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0ABE80A1579AF1400A84A96 /* UIKit.framework in Frameworks */,
-				D0ABE80C1579AF1400A84A96 /* Foundation.framework in Frameworks */,
-				D0ABE80E1579AF1400A84A96 /* CoreGraphics.framework in Frameworks */,
+				D0A210801587CD11002F41F1 /* CoreGraphics.framework in Frameworks */,
+				D0A2107E1587CCEA002F41F1 /* Accelerate.framework in Frameworks */,
+				D0C425DD1586929A00DB4EF2 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,12 +155,11 @@
 		D04A3734153B7E14005621CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D0A2107F1587CD11002F41F1 /* CoreGraphics.framework */,
+				D0A2107D1587CCEA002F41F1 /* Accelerate.framework */,
 				D05275FB15570BCB00F464CC /* Accelerate.framework */,
 				D04A3735153B7E14005621CF /* Cocoa.framework */,
 				D04A3753153B7E14005621CF /* SenTestingKit.framework */,
-				D0ABE8091579AF1400A84A96 /* UIKit.framework */,
-				D0ABE80B1579AF1400A84A96 /* Foundation.framework */,
-				D0ABE80D1579AF1400A84A96 /* CoreGraphics.framework */,
 				D04A3737153B7E14005621CF /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -165,6 +168,7 @@
 		D04A3737153B7E14005621CF /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D0C425DC1586929A00DB4EF2 /* UIKit.framework */,
 				D04A3738153B7E14005621CF /* AppKit.framework */,
 				D04A3739153B7E14005621CF /* CoreData.framework */,
 				D04A373A153B7E14005621CF /* Foundation.framework */,
@@ -229,8 +233,8 @@
 		D0ABE80F1579AF1400A84A96 /* iOSFeatureDetection */ = {
 			isa = PBXGroup;
 			children = (
-				D0ABE8181579AF1400A84A96 /* AppDelegate.h */,
-				D0ABE8191579AF1400A84A96 /* AppDelegate.m */,
+				D0ABE8181579AF1400A84A96 /* iOSAppDelegate.h */,
+				D0ABE8191579AF1400A84A96 /* iOSAppDelegate.m */,
 				D0ABE8101579AF1400A84A96 /* Supporting Files */,
 			);
 			path = iOSFeatureDetection;
@@ -309,7 +313,7 @@
 		D04A3728153B7E14005621CF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0450;
 			};
 			buildConfigurationList = D04A372B153B7E14005621CF /* Build configuration list for PBXProject "FeatureDetection" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -356,6 +360,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A210811587CD41002F41F1 /* lax-sample.png in Resources */,
+				D0A210821587CD41002F41F1 /* plane-kernel.png in Resources */,
 				D0ABE8141579AF1400A84A96 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,7 +409,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0ABE8161579AF1400A84A96 /* main.m in Sources */,
-				D0ABE81A1579AF1400A84A96 /* AppDelegate.m in Sources */,
+				D0ABE81A1579AF1400A84A96 /* iOSAppDelegate.m in Sources */,
+				D0A2107B1587CC11002F41F1 /* LAFeatureDetection.m in Sources */,
+				D0A2107C1587CCCA002F41F1 /* CGImageToBitmap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +467,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -486,6 +495,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -561,7 +571,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOSFeatureDetection/iOSFeatureDetection-Prefix.pch";
-				INFOPLIST_FILE = "iOSFastImageCorrelation/iOSFeatureDetection-Info.plist";
+				INFOPLIST_FILE = "iOSFeatureDetection/iOSFeatureDetection-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = iOSFeatureDetection;
 				SDKROOT = iphoneos;
@@ -581,7 +591,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOSFeatureDetection/iOSFeatureDetection-Prefix.pch";
-				INFOPLIST_FILE = "iOSFastImageCorrelation/iOSFeatureDetection-Info.plist";
+				INFOPLIST_FILE = "iOSFeatureDetection/iOSFeatureDetection-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = iOSFeatureDetection;
