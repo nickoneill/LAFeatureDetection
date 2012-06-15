@@ -3,7 +3,7 @@ This library is designed to use the accelerated vDSP functions for OSX/iOS to pe
 Searching for [this flag](https://github.com/nickoneill/LAFeatureDetection/raw/master/FeatureDetection/Example%20Images/flag-kernel.png) inside of [this image of Discovery](https://github.com/nickoneill/LAFeatureDetection/raw/master/FeatureDetection/Example%20Images/shuttle-sample.png) gives us this visualized result on iOS:
 ![Detecting a flag on iOS](https://github.com/nickoneill/LAFeatureDetection/raw/master/iosscreen.png)
 
-Searching for [this plane](https://github.com/nickoneill/LAFeatureDetection/raw/master/FeatureDetection/Example%20Images/plane-kernel.png) inside of [this aerial image of LAX](https://github.com/nickoneill/LAFeatureDetection/raw/master/FeatureDetection/Example%20Images/lax-sample.png) gives us this visualized result on OSX:
+Searching for [this plane](https://github.com/nickoneill/LAFeatureDetection/raw/master/FeatureDetection/Example%20Images/plane-kernel.png) inside of [this aerial image of LAX](https://github.com/nickoneill/LAFeatureDetection/raw/master/FeatureDetection/Example%20Images/lax-sample.png) gives us this visualized result on OSX (note the thicker outline - this is actually a grouping of three high-probability points returned from the detector):
 ![Detecting a plane on OS X](https://github.com/nickoneill/LAFeatureDetection/raw/master/osxscreen.png)
 
 ### Correlation by convolution ###
