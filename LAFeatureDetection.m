@@ -250,7 +250,7 @@
     vDSP_fft2d_zrip(setupReal, &resultComplex, 1, 0, log2n, log2n, kFFTDirection_Inverse);
     
     // vdsp scales values when computing fft and inverse fft, we need to unscale them
-    scale = (float) 1.0 / (n * n * n);
+    scale = (float) 1.0 / ((float)n * (float)n * (float)n);
     vDSP_vsmul(resultComplex.realp, 1, &scale, resultComplex.realp, 1, nnOver2);
     vDSP_vsmul(resultComplex.imagp, 1, &scale, resultComplex.imagp, 1, nnOver2);
     
